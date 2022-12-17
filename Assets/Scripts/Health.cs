@@ -7,19 +7,10 @@ public class Health : MonoBehaviour
     public int health = 100;
     public delegate void damageAction();
     public event damageAction onDamage;
-    public bool noDamage = false; 
+    public bool noDamage = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public delegate void dieAction(GameObject self);
+    public event dieAction onDeath;
 
     public void takeDamage(int damage)
     {
@@ -38,6 +29,8 @@ public class Health : MonoBehaviour
     public void kill()
     {
         Debug.Log(gameObject.name + " has died.");
+        if (onDeath != null)
+            onDeath(gameObject);
         Destroy(gameObject);
     }
 }

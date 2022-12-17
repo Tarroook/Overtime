@@ -43,7 +43,6 @@ public class Room : MonoBehaviour
             possibleEnemies = new List<GameObject>();
             foreach (GameObject enemy in map.defaultEnemyList)
             {
-                Debug.Log("Added an enemy");
                 possibleEnemies.Add(enemy);
             }
         }
@@ -108,5 +107,13 @@ public class Room : MonoBehaviour
             doorInstance.transform.position = new Vector3(p1.position.x, Random.Range(p1.position.y, p2.position.y), p1.position.z);
         }
         doorInstance.transform.rotation = p1.rotation;
+    }
+
+    private void OnDisable()
+    {
+        for(int i = 0; i < currentEnemies.Count; i++)
+        {
+            enemyDies(currentEnemies[0]);
+        }
     }
 }

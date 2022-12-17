@@ -128,7 +128,6 @@ GameObject:
   - component: {fileID: 799517185178147216}
   - component: {fileID: 799517185178147217}
   - component: {fileID: 799517185178147218}
-  - component: {fileID: 5678702498548088343}
   - component: {fileID: 551146101127806371}
   - component: {fileID: 9134052284245271653}
   m_Layer: 0
@@ -223,20 +222,6 @@ MonoBehaviour:
   bulletPrefab: {fileID: 7759250609964093627, guid: 03030dbeda30f6c4f895407a9894ffca, type: 3}
   bulletOut: {fileID: 799517184488196147}
   speed: 50
---- !u!114 &5678702498548088343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 799517185178147223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00536d7a64ae4594fad96b857e0a5dc3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  noDamage: 0
 --- !u!114 &551146101127806371
 MonoBehaviour:
   m_ObjectHideFlags: 0

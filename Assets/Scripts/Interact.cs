@@ -5,20 +5,26 @@ using UnityEngine;
 public class Interact : MonoBehaviour
 {
 
-    public List<GameObject> interactable = new List<GameObject>();
+    public List<Interactable> interactables = new List<Interactable>();
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Interact") && interactables.Count > 0)
+            interactables[0].interact();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Interactable"))
         {
-            interactable.Add(collision.gameObject);
+            interactables.Add(collision.gameObject.GetComponent<Interactable>());
         }
     }
         
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Interactable")){
-            interactable.Remove(collision.gameObject);
+            interactables.Remove(collision.gameObject.GetComponent<Interactable>());
         }
     }
 }

@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class Map : MonoBehaviour
 {
+    public static Room currentRoom;
+
     public List<GameObject> allRooms;
-    List<GameObject> rooms;
+    public List<GameObject> rooms;
     // Start is called before the first frame update
     void Start()
     {
         rooms = new List<GameObject>();
         generateMap();
+        openRoom(1);
     }
 
     void generateMap()
@@ -18,17 +21,22 @@ public class Map : MonoBehaviour
         for (int i = 0; i < 8; i++)
         {
             int rand = Random.Range(0, allRooms.Count - 1);
-            Debug.Log(rand + "list : " + allRooms[rand]);
-            rooms.Add(allRooms[rand]);
+            rooms.Add(Instantiate(allRooms[rand], gameObject.transform));
             //allRooms.RemoveAt(rand);
         }
 
         for(int r = 0; r < rooms.Count; r++)
         {
-            GameObject roomInstance = Instantiate(rooms[r], gameObject.transform);
-            roomInstance.GetComponent<Room>().roomNumber = r + 1;
-            if(r != 0)
-                roomInstance.SetActive(false);
+            rooms[r].GetComponent<Room>().roomNumber = r + 1;
+            rooms[r].SetActive(false);
         }
+    }
+
+    void openRoom(int roomNb)
+    {
+        Debug.Log("Opened room " + roomNb);
+        GameObject room = rooms[roomNb - 1];
+        room.SetActive(true);
+        currentRoom = room.GetComponent<Room>();
     }
 }

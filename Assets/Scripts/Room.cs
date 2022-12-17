@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
-    public GameObject doorPrefab;
+    public List<Modifier> modifiers = new List<Modifier>();
     [Space(10)]
     public int roomNumber;
     public GameObject doorInstance;
     [Space(10)]
+    public GameObject doorPrefab;
     public Transform bottomDoorSpawns;
     public Transform topDoorSpawns;
     public Transform leftDoorSpawns;
@@ -17,6 +18,7 @@ public class Room : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("Started room" + roomNumber);
         if (roomNumber == 1 || roomNumber == 8)
             spawnDoor(leftDoorSpawns.transform.GetChild(0).transform, leftDoorSpawns.transform.GetChild(1).transform, 1);
         else if(roomNumber == 2 || roomNumber == 3)

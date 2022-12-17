@@ -9,7 +9,7 @@ public class PlayerDamage : MonoBehaviour
     
 
     Health hpScript;
-    public float iframe = 2; 
+    public float iframes = 2; 
 
     private void OnEnable()
     {
@@ -42,7 +42,7 @@ public class PlayerDamage : MonoBehaviour
 
     IEnumerator invulnerableTime()
     {
-        yield return new WaitForSeconds(iframe);
+        yield return new WaitForSeconds(iframes);
         hpScript.noDamage = false;
     }
 }

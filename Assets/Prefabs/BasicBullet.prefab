@@ -137,7 +137,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b541c3cbf67ccc4b926cdc6e126744c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tagsToIgnore: []
+  tagsToIgnore:
+  - NoBullet
 --- !u!96 &-4340166457435186603
 TrailRenderer:
   serializedVersion: 2

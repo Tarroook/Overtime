@@ -26,6 +26,8 @@ public class PlayerShooting : MonoBehaviour
     void shoot()
     {
         GameObject bulletInstance = Instantiate(bulletPrefab, bulletOut.position, bulletOut.rotation);
+        Bullet bulletScript = bulletInstance.GetComponent<Bullet>();
+        bulletScript.tagsToIgnore.Add(gameObject.tag);
         Rigidbody2D rb = bulletInstance.GetComponent<Rigidbody2D>();
         rb.AddForce(bulletOut.up * speed, ForceMode2D.Impulse);
     }

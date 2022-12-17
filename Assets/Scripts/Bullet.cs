@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class Bullet : MonoBehaviour
 {
-    public string[] tagsToIgnore;
+    public List<string> tagsToIgnore;
 
 
     // Start is called before the first frame update
@@ -16,13 +16,14 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Hit " + other.gameObject.name);
+        Debug.Log("Collided with " + other.gameObject.name);
         foreach (string tag in tagsToIgnore)
         {
             if (other.gameObject.CompareTag(tag))
                 return;
         }
 
+        Debug.Log("Hit " + other.gameObject.name);
         if (other.gameObject.GetComponent<Health>() != null)
         {
             StopAllCoroutines();

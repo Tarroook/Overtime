@@ -2,10 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Modifier : MonoBehaviour
+// modifiers are applied per room so theoretically
+// affecting the Map.currentRoom would work since they get called in onEnabled,
+// a reset of every stat would need to be done between each room
+public abstract class Modifier : MonoBehaviour
 {
-    public void effect(Room roomAffected)
+    private Map map;
+    private void Start()
     {
-        // does the effect
+        map = GameObject.FindGameObjectWithTag("Map").GetComponent<Map>();
     }
+    public abstract void effect(); // does the effect
 }

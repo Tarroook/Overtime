@@ -9,12 +9,15 @@ public class Map : MonoBehaviour
     public List<GameObject> allRooms;
     public static List<GameObject> rooms;
 
-    public List<GameObject> defaultEnemyList;
+    public GameObject[] defaultEnemyList;
+
+    public GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
         rooms = new List<GameObject>();
+        player = GameObject.FindGameObjectWithTag("Player");
         generateMap();
         openRoom(1);
     }
@@ -43,7 +46,7 @@ public class Map : MonoBehaviour
         }
         Debug.Log("Opened room " + roomNb);
         GameObject room = rooms[roomNb - 1];
-        room.SetActive(true);
         currentRoom = room.GetComponent<Room>();
+        room.SetActive(true);
     }
 }

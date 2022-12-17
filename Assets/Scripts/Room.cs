@@ -6,7 +6,7 @@ public class Room : MonoBehaviour
 {
     public List<Modifier> modifiers = new List<Modifier>();
     [SerializeField]private List<GameObject> currentEnemies = new List<GameObject>();
-    public List<GameObject> possibleEnemies = new List<GameObject>();
+    public List<GameObject> possibleEnemies;
     public int enemyQuantity = 5; // default to five, may get changed by items or difficulty
     [Space(10)]
     public int roomNumber;
@@ -17,8 +17,13 @@ public class Room : MonoBehaviour
     public Transform topDoorSpawns;
     public Transform leftDoorSpawns;
     public Transform rightDoorSpawns;
-    private Map map;
-    public GameObject player; // used to apply effects to player
+    [SerializeField]private Map map;
+
+    private void Update()
+    {
+        if (currentEnemies.Count == 0)
+            enemiesCleared();
+    }
 
 
     void Start() // Only done once
@@ -30,23 +35,28 @@ public class Room : MonoBehaviour
     // done every time the room is enabled (when the player enters it)
     private void OnEnable() 
     {
-        if (map == null) // gets map the first time it is entered
+        if (map == null)
             map = GameObject.FindGameObjectWithTag("Map").GetComponent<Map>();
-        if (player == null)
-            player = GameObject.FindGameObjectWithTag("Player");
 
-        foreach(Modifier mod in modifiers)
+        if (possibleEnemies == null || possibleEnemies.Count <= 0) // Loads a basic list of enemies the first time the room is entered
         {
-            mod.effect(this);
-        }
-
-        if(possibleEnemies.Count == 0) // Loads a basic list of enemies the first time the room is entered
-        {
-            foreach(GameObject enemydef in map.defaultEnemyList){
-                possibleEnemies.Add(enemydef);
+            possibleEnemies = new List<GameObject>();
+            foreach (GameObject enemy in map.defaultEnemyList)
+            {
+                Debug.Log("Added an enemy");
+                possibleEnemies.Add(enemy);
             }
         }
-        
+        resetRoom();
+    }
+
+    private void resetRoom()
+    {
+        foreach (Modifier mod in modifiers)
+        {
+            mod.effect();
+        }
+
         loadEnemies();
     }
 
@@ -54,6 +64,7 @@ public class Room : MonoBehaviour
     {
         for(int i = 0; i < enemyQuantity; i++)
         {
+            Debug.Log("Spawned enemy " + i);
             GameObject enemyInstance = Instantiate(possibleEnemies[Random.Range(0, possibleEnemies.Count - 1)], transform);
             currentEnemies.Add(enemyInstance);
             enemyInstance.GetComponent<Health>().onDeath += enemyDies;
@@ -64,6 +75,13 @@ public class Room : MonoBehaviour
     {
         currentEnemies.Remove(e);
         e.GetComponent<Health>().onDeath -= enemyDies;
+    }
+
+    private void enemiesCleared()
+    {
+        // spawn modifiers and wait for player to pick one
+        // add an if to not directly open the door
+        doorInstance.GetComponent<Door>().isOpened = true;
     }
 
     void loadDoor()

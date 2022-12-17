@@ -429,6 +429,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allRooms:
   - {fileID: 3309379032494528693, guid: 3a14796f3066ece40a572232a0cc82ee, type: 3}
+  defaultEnemyList:
+  - {fileID: 350050742470329979, guid: a687ec5b0971be94380c844fa55b0f56, type: 3}
+  - {fileID: 350050742470329979, guid: a687ec5b0971be94380c844fa55b0f56, type: 3}
+  - {fileID: 350050742470329979, guid: a687ec5b0971be94380c844fa55b0f56, type: 3}
+  player: {fileID: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - NoBullet
+  - StopBullets
   layers:
   - Default
   - TransparentFX

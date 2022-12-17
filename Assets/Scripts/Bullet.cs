@@ -30,6 +30,11 @@ public class Bullet : MonoBehaviour
             other.gameObject.GetComponent<Health>().takeDamage(5);
             GameObject.Destroy(gameObject);
         }
+        else if (other.gameObject.CompareTag("StopBullets"))
+        {
+            StopAllCoroutines();
+            GameObject.Destroy(gameObject);
+        }
     }
 
     IEnumerator killAfterTime() // destroys the bullet after seconds

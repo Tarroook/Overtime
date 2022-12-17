@@ -10,6 +10,8 @@ public class Health : MonoBehaviour
     public event damageAction onDamage;
     public bool noDamage = false;
 
+    public ParticleSystem healParticles;
+
     public delegate void dieAction(GameObject self);
     public event dieAction onDeath;
 
@@ -33,6 +35,8 @@ public class Health : MonoBehaviour
 
     public void heal(int hp)
     {
+        Debug.Log(gameObject.name + " was healed for " + hp);
+        Instantiate(healParticles, transform.position, Quaternion.identity);
         health += hp;
         if (health > maxHealth)
             health = maxHealth;

@@ -221,8 +221,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00536d7a64ae4594fad96b857e0a5dc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 100
   health: 100
   noDamage: 0
+  healParticles: {fileID: 0}
 --- !u!61 &236832315
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -557,6 +559,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 551146101127806371, guid: 470a45db489a0ed49a97aca6fbadb2de, type: 3}
+      propertyPath: healParticles
+      value: 
+      objectReference: {fileID: 856881182513167411, guid: 3f062a91e8a017f4887eb8ce7fe4ef19, type: 3}
     - target: {fileID: 799517185178147219, guid: 470a45db489a0ed49a97aca6fbadb2de, type: 3}
       propertyPath: m_RootOrder
       value: 2

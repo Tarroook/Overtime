@@ -7952,7 +7952,7 @@ GameObject:
   - component: {fileID: 3309379032494528695}
   m_Layer: 0
   m_Name: Room1 1
-  m_TagString: Untagged
+  m_TagString: StopBullets
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

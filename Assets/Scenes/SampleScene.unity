@@ -661,6 +661,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 350050742470329979, guid: a687ec5b0971be94380c844fa55b0f56, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 2800000, guid: cd4d687ee43fd404db05c51a1f3a63be, type: 3}
+    - target: {fileID: 350050742470329979, guid: a687ec5b0971be94380c844fa55b0f56, type: 3}
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
@@ -722,6 +726,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 799517185178147223, guid: 470a45db489a0ed49a97aca6fbadb2de, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 2800000, guid: 8a5d4524f772a8f408289152af5fa536, type: 3}
     - target: {fileID: 799517185178147223, guid: 470a45db489a0ed49a97aca6fbadb2de, type: 3}
       propertyPath: m_Name
       value: Player

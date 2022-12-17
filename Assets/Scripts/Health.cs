@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    public int maxHealth = 100;
     public int health = 100;
     public delegate void damageAction();
     public event damageAction onDamage;
@@ -23,7 +24,18 @@ public class Health : MonoBehaviour
             onDamage();
         }
         if (health <= 0)
+        {
+            health = 0;
             kill();
+        }
+            
+    }
+
+    public void heal(int hp)
+    {
+        health += hp;
+        if (health > maxHealth)
+            health = maxHealth;
     }
 
     public void kill()

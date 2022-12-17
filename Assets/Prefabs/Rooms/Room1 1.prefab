@@ -7985,9 +7985,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfaccedb3b0a8c34c8cbfcd55d48e7f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorPrefab: {fileID: 3883255789704413582, guid: 63fa7f148e1bb8940a0ed9300c212793, type: 3}
+  modifiers: []
   roomNumber: 1
   doorInstance: {fileID: 0}
+  doorPrefab: {fileID: 3883255789704413582, guid: 63fa7f148e1bb8940a0ed9300c212793, type: 3}
   bottomDoorSpawns: {fileID: 3309379032832014746}
   topDoorSpawns: {fileID: 3309379031991734135}
   leftDoorSpawns: {fileID: 3309379032030705931}

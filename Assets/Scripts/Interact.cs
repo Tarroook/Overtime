@@ -10,7 +10,10 @@ public class Interact : MonoBehaviour
     private void Update()
     {
         if (Input.GetButtonDown("Interact") && interactables.Count > 0)
+        {
+            Debug.Log(gameObject.name + " interacted with " + interactables[0].name);
             interactables[0].interact();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -5,9 +5,9 @@ using UnityEngine;
 public class Map : MonoBehaviour
 {
     public static Room currentRoom;
-
+    public static int maxRooms = 8;
     public List<GameObject> allRooms;
-    public List<GameObject> rooms;
+    public static List<GameObject> rooms;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +18,7 @@ public class Map : MonoBehaviour
 
     void generateMap()
     {
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < maxRooms; i++)
         {
             int rand = Random.Range(0, allRooms.Count - 1);
             rooms.Add(Instantiate(allRooms[rand], gameObject.transform));
@@ -32,8 +32,12 @@ public class Map : MonoBehaviour
         }
     }
 
-    void openRoom(int roomNb)
+    public void openRoom(int roomNb)
     {
+        if(currentRoom != null)
+        {
+            currentRoom.gameObject.SetActive(false);
+        }
         Debug.Log("Opened room " + roomNb);
         GameObject room = rooms[roomNb - 1];
         room.SetActive(true);

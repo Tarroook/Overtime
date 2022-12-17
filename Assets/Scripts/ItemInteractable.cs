@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestItem : MonoBehaviour
+public class ItemInteractable : Interactable
 {
     public Modifier mod;
     public void chooseRoom()
@@ -14,6 +14,11 @@ public class TestItem : MonoBehaviour
     public void applyEffectToRoom(int roomNumber)
     {
         //ajoute l'effet a la chambre donnee
-        Map.currentRoom.modifiers.Add(mod);
+        Map.rooms[roomNumber].GetComponent<Room>().modifiers.Add(mod);
+    }
+
+    public override void interact()
+    {
+        chooseRoom();
     }
 }

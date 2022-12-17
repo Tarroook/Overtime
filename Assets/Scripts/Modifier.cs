@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class Modifier : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void effect(Room roomAffected)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // does the effect
     }
 }

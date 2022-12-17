@@ -8,6 +8,9 @@ public class Map : MonoBehaviour
     public static int maxRooms = 8;
     public List<GameObject> allRooms;
     public static List<GameObject> rooms;
+
+    public List<GameObject> defaultEnemyList;
+
     // Start is called before the first frame update
     void Start()
     {

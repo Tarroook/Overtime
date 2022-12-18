@@ -314,6 +314,11 @@ MonoBehaviour:
   - {fileID: 2340456604217498106, guid: cebe9360deeceeb4ba9dacf34a6df3a6, type: 3}
   downgrades:
   - {fileID: 3375885110328029413, guid: 461787b6bf4d3c84ab8caa3cb092b041, type: 3}
+--- !u!1 &617536353 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7425549421177571386, guid: 4dffdb33e098eae4f8cae3fc6c0b7955, type: 3}
+  m_PrefabInstance: {fileID: 1266413603}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -776,5 +781,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8522961103244492846, guid: 470a45db489a0ed49a97aca6fbadb2de, type: 3}
+      propertyPath: hpBar
+      value: 
+      objectReference: {fileID: 617536353}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 470a45db489a0ed49a97aca6fbadb2de, type: 3}

@@ -8,6 +8,7 @@ TagManager:
   - StopBullets
   - Interactable
   - Map
+  - ModUI
   layers:
   - Default
   - TransparentFX

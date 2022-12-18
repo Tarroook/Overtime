@@ -7,8 +7,9 @@ using UnityEngine;
 // a reset of every stat would need to be done between each room
 public abstract class Modifier : MonoBehaviour
 {
-    private Map map;
-    private void Start()
+    public bool isPicked = false;
+    [SerializeField]protected Map map;
+    protected void Start()
     {
         map = GameObject.FindGameObjectWithTag("Map").GetComponent<Map>();
     }

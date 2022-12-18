@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -47,6 +48,8 @@ public class Health : MonoBehaviour
         Debug.Log(gameObject.name + " has died.");
         if (onDeath != null)
             onDeath(gameObject);
+        if(gameObject.tag.Equals("Player"))
+            SceneManager.LoadScene("MainMenu");
         Destroy(gameObject);
     }
 }

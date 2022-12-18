@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
+    public readonly float defaultSpeed = 5f;
     private Rigidbody2D rb;
     public float speed = 5f;
     [SerializeField] private Vector2 movement;
@@ -32,5 +33,19 @@ public class PlayerMovement : MonoBehaviour
         Vector2 lookDir = mousePos - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = angle;
+    }
+
+    private void OnEnable()
+    {
+        Map.onNextRoom += resetMovement;
+    }
+    private void OnDisable()
+    {
+        Map.onNextRoom -= resetMovement;
+    }
+
+    void resetMovement()
+    {
+        speed = defaultSpeed;
     }
 }

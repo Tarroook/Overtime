@@ -161,5 +161,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3078f34823584a4e90f9047e539cf2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPicked: 0
   map: {fileID: 0}
   holyParticle: {fileID: 3598360602082683441, guid: 0365cacc5d4d8fe4a85ccbb9f9042c88, type: 3}

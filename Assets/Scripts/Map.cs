@@ -16,6 +16,9 @@ public class Map : MonoBehaviour
     public GameObject[] upgrades;
     public GameObject[] downgrades;
 
+    public delegate void nextRoomAction();
+    public static event nextRoomAction onNextRoom;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +46,8 @@ public class Map : MonoBehaviour
 
     public void openRoom(int roomNb)
     {
+        if (onNextRoom != null)
+            onNextRoom();
         if(currentRoom != null)
         {
             currentRoom.gameObject.SetActive(false);

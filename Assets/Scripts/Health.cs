@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public int maxHealth = 100;
+    public int maxHealth = 100; // need to add default values and shit but fuck I'm tired
     public int health = 100;
     public delegate void damageAction();
     public event damageAction onDamage;
@@ -14,6 +14,7 @@ public class Health : MonoBehaviour
 
     public delegate void dieAction(GameObject self);
     public event dieAction onDeath;
+
 
     public void takeDamage(int damage)
     {
@@ -30,7 +31,6 @@ public class Health : MonoBehaviour
             health = 0;
             kill();
         }
-            
     }
 
     public void heal(int hp)

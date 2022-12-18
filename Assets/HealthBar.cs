@@ -6,7 +6,6 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Health))]
 public class HealthBar : MonoBehaviour
 {
-
     Health hpScript;
     public GameObject hpBar;
     Slider slider;
@@ -49,7 +48,6 @@ public class HealthBar : MonoBehaviour
     void startAnimation()
     {
         anim.SetTrigger("damage");
-
     }
 }
 

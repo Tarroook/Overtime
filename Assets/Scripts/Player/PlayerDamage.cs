@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class PlayerDamage : MonoBehaviour
 {
-    
-
     Health hpScript;
     public float iframes = 2; 
 

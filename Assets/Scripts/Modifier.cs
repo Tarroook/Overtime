@@ -7,10 +7,12 @@ using UnityEngine;
 // a reset of every stat would need to be done between each room
 public abstract class Modifier : MonoBehaviour
 {
-    protected Map map;
+    [SerializeField]protected Map map;
     private void Start()
     {
-        map = GameObject.FindGameObjectWithTag("Map").GetComponent<Map>();
+        Debug.Log("Started Modifier");
+        map = GameObject.Find("Map").GetComponent<Map>();
+        Debug.Log(map);
     }
     public abstract void effect(); // does the effect
 }

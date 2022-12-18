@@ -53,6 +53,7 @@ public class Room : MonoBehaviour
     {
         foreach (Modifier mod in modifiers)
         {
+            Debug.Log("Did an effect : " + mod.name);
             mod.effect();
         }
 
@@ -63,7 +64,7 @@ public class Room : MonoBehaviour
     {
         for(int i = 0; i < enemyQuantity; i++)
         {
-            Debug.Log("Spawned enemy " + i);
+            //Debug.Log("Spawned enemy " + i);
             GameObject enemyInstance = Instantiate(possibleEnemies[Random.Range(0, possibleEnemies.Count - 1)], transform);
             currentEnemies.Add(enemyInstance);
             enemyInstance.GetComponent<Health>().onDeath += enemyDies;

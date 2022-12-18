@@ -36,6 +36,7 @@ public class PlayerDamage : MonoBehaviour
 
     void playerTakeDamage()
     {
+
         hpScript.noDamage = true;
         StartCoroutine(invulnerableTime());
     }

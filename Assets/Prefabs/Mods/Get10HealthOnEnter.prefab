@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 115363219668426653}
   - component: {fileID: 115363219668426652}
   m_Layer: 0
-  m_Name: book
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 875694145859630664}
   - component: {fileID: 5919953538787402253}
   m_Layer: 0
-  m_Name: item
+  m_Name: Get10HealthOnEnter
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -161,4 +161,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3078f34823584a4e90f9047e539cf2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  map: {fileID: 0}
   holyParticle: {fileID: 3598360602082683441, guid: 0365cacc5d4d8fe4a85ccbb9f9042c88, type: 3}

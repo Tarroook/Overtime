@@ -13,6 +13,9 @@ public class Map : MonoBehaviour
 
     public GameObject player;
 
+    public GameObject[] upgrades;
+    public GameObject[] downgrades;
+
     // Start is called before the first frame update
     void Start()
     {

@@ -62,6 +62,7 @@ public class ItemInteractable : Interactable
     public override void interact()
     {
         chooseRoom();
+        mod.isPicked = true;
         gameObject.GetComponent<CircleCollider2D>().enabled = false;
         foreach (Transform child in transform)
             child.gameObject.SetActive(false);

@@ -18,25 +18,16 @@ public class Room : MonoBehaviour
     public Transform leftDoorSpawns;
     public Transform rightDoorSpawns;
     [SerializeField]private Map map;
-
-    private void Update()
-    {
-        if (currentEnemies.Count == 0)
-            enemiesCleared();
-    }
-
-
-    void Start() // Only done once
-    {
-        Debug.Log("Started room" + roomNumber);
-        loadDoor();
-    }
+    public int upgradesAmount = 2;
+    public int downgradesAmount = 2;
 
     // done every time the room is enabled (when the player enters it)
     private void OnEnable() 
     {
         if (map == null)
             map = GameObject.FindGameObjectWithTag("Map").GetComponent<Map>();
+        if(doorInstance == null)
+            loadDoor();
 
         if (possibleEnemies == null || possibleEnemies.Count <= 0) // Loads a basic list of enemies the first time the room is entered
         {
@@ -51,6 +42,7 @@ public class Room : MonoBehaviour
 
     private void resetRoom()
     {
+        doorInstance.GetComponent<Door>().isOpened = false;
         foreach (Modifier mod in modifiers)
         {
             Debug.Log("Did an effect : " + mod.name);
@@ -75,12 +67,51 @@ public class Room : MonoBehaviour
     {
         currentEnemies.Remove(e);
         e.GetComponent<Health>().onDeath -= enemyDies;
+        if (currentEnemies.Count == 0)
+            enemiesCleared();
     }
 
     private void enemiesCleared()
     {
-        // spawn modifiers and wait for player to pick one
-        // add an if to not directly open the door
+        float radius = 1f;
+        float angleStep = 360f / (upgradesAmount + downgradesAmount);
+        List<GameObject> mods = new List<GameObject>();
+        for(int i = 0; i < upgradesAmount; i++)
+        {
+            float angle = angleStep * i;
+            float x = map.player.transform.position.x + radius * Mathf.Sin(angle * Mathf.Deg2Rad);
+            float y = map.player.transform.position.y + radius * Mathf.Cos(angle * Mathf.Deg2Rad);
+            GameObject go = Instantiate(map.upgrades[Random.Range(0, map.downgrades.Length)], new Vector2(x, y), Quaternion.identity);
+            go.transform.parent = transform;
+            mods.Add(go);
+        }
+
+        for (int i = 0; i < downgradesAmount; i++)
+        {
+            float angle = angleStep * i;
+            float x = map.player.transform.position.x + radius * Mathf.Sin(angle * Mathf.Deg2Rad);
+            float y = map.player.transform.position.y + radius * Mathf.Cos(angle * Mathf.Deg2Rad);
+            GameObject go = Instantiate(map.downgrades[Random.Range(0, map.downgrades.Length)], new Vector2(x, y), Quaternion.identity);
+            go.transform.parent = transform;
+            mods.Add(go);
+        }
+
+        StartCoroutine(pickUpMods(mods));
+    }
+
+    IEnumerator pickUpMods(List<GameObject> mods)
+    {
+        int count = 0;
+        while (count != downgradesAmount + upgradesAmount)
+        {
+            count = 0;
+            foreach (GameObject go in mods)
+            {
+                if (go.GetComponent<Modifier>().isPicked)
+                    count++;
+            }
+            yield return new WaitForEndOfFrame();
+        }
         doorInstance.GetComponent<Door>().isOpened = true;
     }
 

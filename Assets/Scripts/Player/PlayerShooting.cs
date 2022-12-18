@@ -76,8 +76,10 @@ public class PlayerShooting : MonoBehaviour
         if (Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
-
-            shoot();
+            for (int i = 0; i < nbPerShot; i++)
+            {
+                shoot();
+            }
         }
     }
 

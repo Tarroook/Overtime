@@ -76,19 +76,21 @@ public class Room : MonoBehaviour
         float radius = 1f;
         float angleStep = 360f / (upgradesAmount + downgradesAmount);
         List<GameObject> mods = new List<GameObject>();
-        for(int i = 0; i < upgradesAmount; i++)
+        for (int i = 0; i < upgradesAmount; i++)
         {
             float angle = angleStep * i;
             float x = map.player.transform.position.x + radius * Mathf.Sin(angle * Mathf.Deg2Rad);
             float y = map.player.transform.position.y + radius * Mathf.Cos(angle * Mathf.Deg2Rad);
-            GameObject go = Instantiate(map.upgrades[Random.Range(0, map.downgrades.Length)], new Vector2(x, y), Quaternion.identity);
+            GameObject go = Instantiate(map.upgrades[Random.Range(0, map.upgrades.Length)], new Vector2(x, y), Quaternion.identity);
             go.transform.parent = transform;
             mods.Add(go);
         }
 
+        // Start the loop for downgrades at a different angle
+        float startAngle = angleStep * upgradesAmount;
         for (int i = 0; i < downgradesAmount; i++)
         {
-            float angle = angleStep * i;
+            float angle = startAngle + angleStep * i;
             float x = map.player.transform.position.x + radius * Mathf.Sin(angle * Mathf.Deg2Rad);
             float y = map.player.transform.position.y + radius * Mathf.Cos(angle * Mathf.Deg2Rad);
             GameObject go = Instantiate(map.downgrades[Random.Range(0, map.downgrades.Length)], new Vector2(x, y), Quaternion.identity);

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Modifier))]
 public class ItemInteractable : Interactable
 {
     public Modifier mod;

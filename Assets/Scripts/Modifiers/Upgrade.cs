@@ -6,8 +6,9 @@ public abstract class Upgrade : Modifier
 {
     public ParticleSystem holyParticle;
 
-    private void Start()
+    private new void Start()
     {
+        base.Start();
         Transform part = Instantiate(holyParticle, transform).transform;
         part.localPosition = Vector3.zero;
     }

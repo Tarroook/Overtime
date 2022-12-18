@@ -8,10 +8,10 @@ using UnityEngine;
 public abstract class Modifier : MonoBehaviour
 {
     [SerializeField]protected Map map;
-    private void Start()
+    protected void Start()
     {
         Debug.Log("Started Modifier");
-        map = GameObject.Find("Map").GetComponent<Map>();
+        map = GameObject.FindGameObjectWithTag("Map").GetComponent<Map>();
         Debug.Log(map);
     }
     public abstract void effect(); // does the effect

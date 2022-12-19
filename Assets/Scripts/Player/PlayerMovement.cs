@@ -5,9 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
-    public readonly float defaultSpeed = 5f;
+    public readonly float defaultSpeed = 200f;
     private Rigidbody2D rb;
-    public float speed = 5f;
+    public float speed = 200f;
     public float drag = 1;
     [SerializeField] private Vector2 movement;
     [SerializeField] private Vector2 mousePos;

@@ -11,15 +11,23 @@ public class PlayerShooting : MonoBehaviour
     public readonly float defaultFireRate = 5f;
     public readonly float defaultNbPerShot = 1f;
     public readonly float defaultSpread = 3f;
+    public readonly float defaultRecoil = 5f;
     public readonly string defaultShootType = "single";
     [Space(20)]
     public float projectileSpeed = 50f;
     public float fireRate = 5; // bullets per seconds
     public float nbPerShot = 1;
     public float spread = 3f;
+    public float recoil = 5f;
     public string shootType = "single";
     [Space(10)]
     public float nextTimeToFire = 0f;
+    private Rigidbody2D playerRigidbody;
+
+    private void Start()
+    {
+        playerRigidbody = GetComponent<Rigidbody2D>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -48,6 +56,7 @@ public class PlayerShooting : MonoBehaviour
     {
         Quaternion randomRotation = Quaternion.Euler(0f, 0f, Random.Range(-spread, spread));
         GameObject bulletInstance = Instantiate(bulletPrefab, bulletOut.position, bulletOut.rotation * randomRotation);
+        playerRigidbody.AddForce(-bulletOut.up * recoil, ForceMode2D.Impulse);
         Bullet bulletScript = bulletInstance.GetComponent<Bullet>();
         bulletScript.tagsToIgnore.Add(gameObject.tag);
         Rigidbody2D rb = bulletInstance.GetComponent<Rigidbody2D>();
@@ -69,6 +78,7 @@ public class PlayerShooting : MonoBehaviour
         fireRate = defaultFireRate;
         nbPerShot = defaultNbPerShot;
         spread = defaultSpread;
+        recoil = defaultRecoil;
         shootType = defaultShootType;
     }
     void SingleShot()

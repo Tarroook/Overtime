@@ -100,8 +100,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 20
+  m_LinearDrag: 3
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -121,7 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9bb5a4acc274ec419e63cb20036752b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 200
+  drag: 2.5
   movement: {x: 0, y: 0}
   mousePos: {x: 0, y: 0}
 --- !u!114 &799517185178147218
@@ -142,6 +143,7 @@ MonoBehaviour:
   fireRate: 5
   nbPerShot: 1
   spread: 3
+  recoil: 5
   shootType: single
   nextTimeToFire: 0
 --- !u!114 &551146101127806371

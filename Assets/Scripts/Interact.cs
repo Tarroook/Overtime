@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Interact : MonoBehaviour
@@ -21,13 +22,18 @@ public class Interact : MonoBehaviour
         if (collision.CompareTag("Interactable"))
         {
             interactables.Add(collision.gameObject.GetComponent<Interactable>());
+            // Sort the interactables list based on the distance between the player and the Interactable object
+            interactables = interactables.OrderBy(i => Vector2.Distance(transform.position, i.transform.position)).ToList();
         }
     }
-        
+
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Interactable")){
+        if (collision.CompareTag("Interactable"))
+        {
             interactables.Remove(collision.gameObject.GetComponent<Interactable>());
+            // Sort the interactables list based on the distance between the player and the Interactable object
+            interactables = interactables.OrderBy(i => Vector2.Distance(transform.position, i.transform.position)).ToList();
         }
     }
 }

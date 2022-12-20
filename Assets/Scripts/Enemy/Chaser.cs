@@ -11,14 +11,13 @@ public class Chaser : Enemy
             return;
         if (!isAwake)
         {
-            if (zone.awaike)
+            if (zone.awake)
             {
                 isAwake = true;
             }
 
         }else
         {
-            //fonction poursuvre joueur 
             chasePlayer();
         }
     }
@@ -28,7 +27,7 @@ public class Chaser : Enemy
         //float step = speed * Time.deltaTime;
         //transform.position = Vector2.MoveTowards(transform.position, player.transform.position, step);
 
-        rb.AddForce(transform.up * speed , ForceMode2D.Force);
+        rb.AddForce(transform.up * speed * Time.deltaTime, ForceMode2D.Force);
 
         Vector2 lookDir = (Vector2)player.transform.position - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;

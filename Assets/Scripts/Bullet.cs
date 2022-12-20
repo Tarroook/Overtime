@@ -6,6 +6,8 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public List<string> tagsToIgnore;
+    public int damage = 5;
+    public float knockback = 3f;
 
 
     // Start is called before the first frame update
@@ -26,15 +28,33 @@ public class Bullet : MonoBehaviour
         //Debug.Log("Hit " + other.gameObject.name);
         if (other.gameObject.GetComponent<Health>() != null)
         {
-            StopAllCoroutines();
-            other.gameObject.GetComponent<Health>().takeDamage(5);
-            GameObject.Destroy(gameObject);
+            hitEntity(other);
         }
         else if (other.gameObject.CompareTag("StopBullets"))
         {
-            StopAllCoroutines();
-            GameObject.Destroy(gameObject);
+            hitEnv(other);
         }
+    }
+
+    void hitEntity(Collider2D other)
+    {
+        StopAllCoroutines();
+        if (other.gameObject.GetComponent<Rigidbody2D>() != null)
+        {
+            Rigidbody2D rb2D = other.gameObject.GetComponent<Rigidbody2D>();
+            rb2D.AddForce(transform.up * Time.deltaTime * knockback * 100, ForceMode2D.Impulse); // 10 is the knockback force
+        }
+        if (other.gameObject.GetComponent<Health>() != null)
+        {
+            other.gameObject.GetComponent<Health>().takeDamage(damage);
+        }
+        GameObject.Destroy(gameObject);
+    }
+
+    void hitEnv(Collider2D other)
+    {
+        StopAllCoroutines();
+        GameObject.Destroy(gameObject);
     }
 
     IEnumerator killAfterTime() // destroys the bullet after seconds

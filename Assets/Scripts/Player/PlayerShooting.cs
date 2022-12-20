@@ -11,14 +11,14 @@ public class PlayerShooting : MonoBehaviour
     public readonly float defaultFireRate = 5f;
     public readonly float defaultNbPerShot = 1f;
     public readonly float defaultSpread = 3f;
-    public readonly float defaultRecoil = 5000f;
+    public readonly float defaultRecoil = 5f;
     public readonly string defaultShootType = "single";
     [Space(20)]
     public float projectileSpeed = 50f;
     public float fireRate = 5; // bullets per seconds
     public float nbPerShot = 1;
     public float spread = 3f;
-    public float recoil = 5000f;
+    public float recoil = 5f;
     public string shootType = "single";
     [Space(10)]
     public float nextTimeToFire = 0f;
@@ -66,7 +66,13 @@ public class PlayerShooting : MonoBehaviour
 
     void applyRecoil()
     {
-        playerRigidbody.AddForce(-bulletOut.up * recoil * Time.deltaTime, ForceMode2D.Impulse);
+        Vector2 localUpDirection = transform.up;
+        float dotProduct = Vector2.Dot(localUpDirection, playerRigidbody.velocity);
+
+        if (dotProduct > -1)
+        {
+            playerRigidbody.AddForce(-bulletOut.up * recoil * 1000 * Time.deltaTime, ForceMode2D.Impulse);
+        }
     }
 
     private void OnEnable()

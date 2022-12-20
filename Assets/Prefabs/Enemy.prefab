@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aeabba5a611c694cab1faf5c8ccf907, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  speed: 143.95
 --- !u!58 &8151187976278361001
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -156,8 +156,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 9
+  m_Mass: 20
+  m_LinearDrag: 1
   m_AngularDrag: 35
   m_GravityScale: 0
   m_Material: {fileID: 0}

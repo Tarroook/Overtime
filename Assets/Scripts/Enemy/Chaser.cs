@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Chaser : Enemy
 {
-
-    
-    
     // Update is called once per frame
     void Update()
     {
@@ -26,8 +23,6 @@ public class Chaser : Enemy
         }
     }
 
-
-
     void chasePlayer()
     {
         //float step = speed * Time.deltaTime;
@@ -40,8 +35,6 @@ public class Chaser : Enemy
         rb.rotation = angle;
     }
 
-
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -49,7 +42,6 @@ public class Chaser : Enemy
             collision.gameObject.GetComponent<Health>().takeDamage(5);
         }
     }
-
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -57,8 +49,4 @@ public class Chaser : Enemy
             collision.gameObject.GetComponent<Health>().takeDamage(5);
         }
     }
-    
-
-
-
 }

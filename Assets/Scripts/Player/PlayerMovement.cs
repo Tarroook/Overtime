@@ -5,9 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
-    public readonly float defaultSpeed = 200f;
     private Rigidbody2D rb;
-    public float speed = 200f;
+    public readonly float defaultSpeed = 5f;
+    public float speed = 5f;
     public float drag = 1;
     [SerializeField] private Vector2 movement;
     [SerializeField] private Vector2 mousePos;
@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.AddForce(movement * speed * Time.deltaTime, ForceMode2D.Impulse);
+        rb.AddForce(movement * speed, ForceMode2D.Impulse);
         if (movement == Vector2.zero)
         {
             rb.AddForce(-rb.velocity * drag, ForceMode2D.Impulse);

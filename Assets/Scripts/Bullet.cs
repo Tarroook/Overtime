@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
 {
     public List<string> tagsToIgnore;
     public int damage = 5;
-    public float knockback = 3f;
+    public float knockback = 2f;
 
 
     // Start is called before the first frame update

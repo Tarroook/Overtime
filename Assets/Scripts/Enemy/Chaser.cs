@@ -16,18 +16,18 @@ public class Chaser : Enemy
                 isAwake = true;
             }
 
-        }else
-        {
-            chasePlayer();
         }
+    }
+
+    private void FixedUpdate()
+    {
+        if(isAwake)
+            chasePlayer();
     }
 
     void chasePlayer()
     {
-        //float step = speed * Time.deltaTime;
-        //transform.position = Vector2.MoveTowards(transform.position, player.transform.position, step);
-
-        rb.AddForce(transform.up * speed * Time.deltaTime, ForceMode2D.Force);
+        rb.AddForce(transform.up * speed, ForceMode2D.Force);
 
         Vector2 lookDir = (Vector2)player.transform.position - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;

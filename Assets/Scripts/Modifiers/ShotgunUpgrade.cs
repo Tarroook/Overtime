@@ -7,7 +7,7 @@ public class ShotgunUpgrade : Upgrade
     public override void effect()
     {
         PlayerShooting ps = map.player.GetComponent<PlayerShooting>();
-        ps.nbPerShot++;
+        ps.bulletsPerShot++;
         ps.spread += 10;
     }
 }

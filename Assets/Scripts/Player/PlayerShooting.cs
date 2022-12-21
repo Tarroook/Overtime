@@ -9,20 +9,21 @@ public class PlayerShooting : MonoBehaviour
     [Space(10)]
     public readonly float defaultProjectileSpeed = 50f;
     public readonly float defaultFireRate = 5f;
-    public readonly float defaultNbPerShot = 1f;
+    public readonly float defaultBulletsPerShot = 1f;
     public readonly float defaultSpread = 3f;
     public readonly float defaultRecoil = 5f;
     public readonly string defaultShootType = "single";
     [Space(20)]
     public float projectileSpeed = 50f;
     public float fireRate = 5; // bullets per seconds
-    public float nbPerShot = 1;
+    public float bulletsPerShot = 1;
     public float spread = 3f;
     public float recoil = 5f;
     public string shootType = "single";
     [Space(10)]
-    public float nextTimeToFire = 0f;
+    private float nextTimeToFire = 0f;
     private Rigidbody2D playerRigidbody;
+    public AudioClip gunShotSFX;
 
     private void Start()
     {
@@ -62,6 +63,7 @@ public class PlayerShooting : MonoBehaviour
         rb.AddForce(bulletInstance.transform.up * projectileSpeed, ForceMode2D.Impulse);
 
         applyRecoil();
+        StartCoroutine(bulletOut.GetComponent<DynamicAudio>().play(gunShotSFX, .5f, 1));
     }
 
     void applyRecoil()
@@ -88,7 +90,7 @@ public class PlayerShooting : MonoBehaviour
     {
         projectileSpeed = defaultProjectileSpeed;
         fireRate = defaultFireRate;
-        nbPerShot = defaultNbPerShot;
+        bulletsPerShot = defaultBulletsPerShot;
         spread = defaultSpread;
         recoil = defaultRecoil;
         shootType = defaultShootType;
@@ -98,7 +100,7 @@ public class PlayerShooting : MonoBehaviour
         if (Time.time >= nextTimeToFire)
         {
             nextTimeToFire = Time.time + 1f / fireRate;
-            for (int i = 0; i < nbPerShot; i++)
+            for (int i = 0; i < bulletsPerShot; i++)
             {
                 shoot();
             }
@@ -110,7 +112,7 @@ public class PlayerShooting : MonoBehaviour
         if (Time.time >= nextTimeToFire)
         {
             // nextTimeToFire is equals to the total time between shots * the number of projectiles + half of the time between shots so it's slower than the fire rate
-            nextTimeToFire = Time.time + (1f / fireRate) * (nbPerShot + (nbPerShot * 0.5f));
+            nextTimeToFire = Time.time + (1f / fireRate) * (bulletsPerShot + (bulletsPerShot * 0.5f));
 
             StartCoroutine(BurstShotCoroutine(1f / fireRate));
         }
@@ -118,7 +120,7 @@ public class PlayerShooting : MonoBehaviour
 
     IEnumerator BurstShotCoroutine(float interval)
     {
-        for (int i = 0; i < nbPerShot; i++)
+        for (int i = 0; i < bulletsPerShot; i++)
         {
             shoot();
             yield return new WaitForSeconds(interval);

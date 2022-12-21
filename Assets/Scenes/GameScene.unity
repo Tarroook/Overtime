@@ -580,6 +580,11 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1206070879 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 799517184488196144, guid: 470a45db489a0ed49a97aca6fbadb2de, type: 3}
+  m_PrefabInstance: {fileID: 799517184550056013}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1266413603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -770,10 +775,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 551146101127806371, guid: 470a45db489a0ed49a97aca6fbadb2de, type: 3}
-      propertyPath: healParticles
-      value: 
-      objectReference: {fileID: 856881182513167411, guid: 3f062a91e8a017f4887eb8ce7fe4ef19, type: 3}
     - target: {fileID: 799517185178147218, guid: 470a45db489a0ed49a97aca6fbadb2de, type: 3}
       propertyPath: defaultSpread
       value: 3
@@ -836,3 +837,15 @@ PrefabInstance:
       objectReference: {fileID: 617536353}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 470a45db489a0ed49a97aca6fbadb2de, type: 3}
+--- !u!114 &799517184550056021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206070879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0fc14ef8226cd04a9ecfb9c0450e125, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

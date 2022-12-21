@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 799517184488196147}
+  - component: {fileID: 6423793462269768630}
   m_Layer: 0
   m_Name: BulletOut
   m_TagString: Untagged
@@ -31,6 +32,18 @@ Transform:
   m_Father: {fileID: 799517185178147219}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6423793462269768630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799517184488196144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0fc14ef8226cd04a9ecfb9c0450e125, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &799517185178147223
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,11 +155,11 @@ MonoBehaviour:
   bulletOut: {fileID: 799517184488196147}
   projectileSpeed: 50
   fireRate: 5
-  nbPerShot: 1
+  bulletsPerShot: 1
   spread: 3
   recoil: 5
   shootType: single
-  nextTimeToFire: 0
+  gunShotSFX: {fileID: 8300000, guid: eda30ab623036ce459bb2898a571decb, type: 3}
 --- !u!114 &551146101127806371
 MonoBehaviour:
   m_ObjectHideFlags: 0

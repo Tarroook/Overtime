@@ -776,6 +776,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 799517185178147218, guid: 470a45db489a0ed49a97aca6fbadb2de, type: 3}
+      propertyPath: gunShotSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: eda30ab623036ce459bb2898a571decb, type: 3}
+    - target: {fileID: 799517185178147218, guid: 470a45db489a0ed49a97aca6fbadb2de, type: 3}
       propertyPath: defaultSpread
       value: 3
       objectReference: {fileID: 0}

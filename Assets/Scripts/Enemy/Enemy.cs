@@ -10,6 +10,7 @@ public abstract class Enemy  : MonoBehaviour
     protected bool isAwake = false;
     protected GameObject player;
     protected Rigidbody2D rb; 
+
     private void OnEnable()
     {
         hpScript = gameObject.GetComponent<Health>();
@@ -21,7 +22,7 @@ public abstract class Enemy  : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         zone = gameObject.GetComponentInChildren<DetectPlayer>();
@@ -38,6 +39,4 @@ public abstract class Enemy  : MonoBehaviour
             isAwake = true;
         }
     }
-
-
 }

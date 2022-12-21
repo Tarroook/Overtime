@@ -63,7 +63,7 @@ public class PlayerShooting : MonoBehaviour
         rb.AddForce(bulletInstance.transform.up * projectileSpeed, ForceMode2D.Impulse);
 
         applyRecoil();
-        StartCoroutine(bulletOut.GetComponent<DynamicAudio>().play(gunShotSFX, .5f, 1));
+        StartCoroutine(bulletOut.GetComponent<DynamicAudio>().play(gunShotSFX, .3f, 1));
     }
 
     void applyRecoil()

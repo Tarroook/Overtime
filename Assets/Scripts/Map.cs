@@ -18,6 +18,8 @@ public class Map : MonoBehaviour
 
     public delegate void nextRoomAction();
     public static event nextRoomAction onNextRoom;
+    public delegate void roomLoadedAction();
+    public static event roomLoadedAction onRoomLoaded;
 
     // Start is called before the first frame update
     void Start()
@@ -48,7 +50,7 @@ public class Map : MonoBehaviour
     {
         if (onNextRoom != null)
             onNextRoom();
-        if(currentRoom != null)
+        if (currentRoom != null)
         {
             currentRoom.gameObject.SetActive(false);
         }
@@ -56,5 +58,15 @@ public class Map : MonoBehaviour
         GameObject room = rooms[roomNb - 1];
         currentRoom = room.GetComponent<Room>();
         room.SetActive(true);
+
+        // Delay the call to the updateGraph function until after the currentRoom game object and its children have been fully loaded and activated
+        StartCoroutine(DelayUpdateGraph());
+    }
+
+    IEnumerator DelayUpdateGraph()
+    {
+        yield return new WaitForEndOfFrame();
+        if (onRoomLoaded != null)
+            onRoomLoaded();
     }
 }

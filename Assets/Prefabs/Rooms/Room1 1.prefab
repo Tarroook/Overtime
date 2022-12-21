@@ -7104,7 +7104,7 @@ GameObject:
   - component: {fileID: 3309379032167284672}
   - component: {fileID: 3309379032167284673}
   - component: {fileID: 3309379032167284678}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collisions
   m_TagString: StopBullets
   m_Icon: {fileID: 0}

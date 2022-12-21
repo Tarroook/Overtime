@@ -695,6 +695,93 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 799517185178147219, guid: 470a45db489a0ed49a97aca6fbadb2de, type: 3}
   m_PrefabInstance: {fileID: 799517184550056013}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1961556397
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1961556399}
+  - component: {fileID: 1961556398}
+  m_Layer: 0
+  m_Name: A* grid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1961556398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961556397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78396926cbbfc4ac3b48fc5fc34a87d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  data:
+    dataString: UEsDBBQAAAgIAAAIIew9r9UtWwIAABAFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVMtS4zAQ/JWUzhvKpgiBve0mIewBSJGluPgiS+NYFVly6UESqPz7amQ7Nt4TortnpufhfBGhbA3MabM2gj9pDuTnhOCb/Jj05CMc6U6rrfiETvMuuCtRRKPmlTqhA55imNUVOCPYL7WTKE4C6JUotKlWfAcLbZ0NcEGlhUAZ7TBaBehrQo7hz/QeQ07hdT3H12d43SeTc3gyUA5ML72+mrXSTtjovGKSVjVwNN3LZ13iWSNToZ1WgdaZllLY1gtxpzr2uq1LMIDNckFDa7E+yksQu9Khi2HsS1FYcK0jQ09LYcKEmqTkt27GVlG7b2x9UOmxzF001KR8+o+dppEujK4eu6ppghVcKdj+lZ4YtW4w1SG8/G7bqwOVe5pLeC9BPeu10V7xQDrjMdRbuF72/14aW5TA9j3eWB2Bvu6HnYw2gz2cY+/HhRRVjtTVTQNspY7DjpsHE9byJxiOd2HbFAFFF28W/tLd8IBa4kEY6wLVdqnQXq69QSlZxZlhN94ttFEQ4dZ0DYpKd9qENG68wBE3KDtiHih+Km3xluu+gFFIhHt9koyojT5clmVLfXgCW754J4WC3jQSz2FOC61Uc1/DmXRhW28KygZhOy/499Mi9G5OZzS9zXk6v79Ni2lyA0mez9ksv0kZMEbi7QkV+qRy0xhtxxO2pvrkKtwZZnzVulobWsdT54Ye1uKz0oOJC1XoLTMA6qVJcPENJtQIXyRfcRHmswXnhIrrJl8ZkZrtgWeXRFlsdHV0hmZ9lozU4kM7RDKyiL8YGUH4csobAx8CDli8S3Ym539QSwMEFAAACAgAAAgh7PZfuZZtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tFKihXmiaaKhWVKKobmlmWGaroFJqkFSknmyaZKJYXJqcrJSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAAgh7D2v1S1bAgAAEAUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAgh7PZfuZZtAAAAeAAAAAkAJAAAAAAAAAAAAAAAqAIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABgAwAAAAA=
+    upgradeData: 
+    file_cachedStartup: {fileID: 0}
+    data_cachedStartup: 
+    cacheStartup: 0
+  showNavGraphs: 1
+  showUnwalkableNodes: 1
+  debugMode: 0
+  debugFloor: 0
+  debugRoof: 1
+  manualDebugFloorRoof: 0
+  showSearchTree: 0
+  unwalkableNodeDebugSize: 0.3
+  logPathResults: 1
+  maxNearestNodeDistance: 100
+  scanOnStartup: 1
+  fullGetNearestSearch: 0
+  prioritizeGraphs: 0
+  prioritizeGraphsLimit: 1
+  colorSettings:
+    _SolidColor: {r: 0.11764706, g: 0.4, b: 0.7882353, a: 0.9}
+    _UnwalkableNode: {r: 1, g: 0, b: 0, a: 0.5}
+    _BoundsHandles: {r: 0.29, g: 0.454, b: 0.741, a: 0.9}
+    _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: 0.5}
+    _ConnectionHighLerp: {r: 1, g: 0, b: 0, a: 0.5}
+    _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
+    _AreaColors:
+    - {r: 0, g: 0, b: 0, a: 0}
+  tagNames: []
+  heuristic: 2
+  heuristicScale: 1
+  threadCount: 1
+  maxFrameTime: 1
+  batchGraphUpdates: 0
+  graphUpdateBatchingInterval: 0.2
+  euclideanEmbedding:
+    mode: 0
+    seed: 0
+    pivotPointRoot: {fileID: 0}
+    spreadOutCount: 1
+  showGraphs: 1
+--- !u!4 &1961556399
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961556397}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2092191354
 GameObject:
   m_ObjectHideFlags: 0

@@ -38,6 +38,7 @@ public class Map : MonoBehaviour
             GameObject randRoom = Instantiate(allRooms[rand], gameObject.transform);
             randRoom.GetComponent<Room>().roomNumber = i + 1;
             randRoom.SetActive(false);
+            Debug.Log("Room : " + randRoom.name + " number : " + randRoom.GetComponent<Room>().roomNumber);
             rooms.Add(randRoom);
         }
     }

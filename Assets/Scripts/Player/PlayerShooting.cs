@@ -103,7 +103,7 @@ public class PlayerShooting : MonoBehaviour
             {
                 shoot();
             }
-            StartCoroutine(bulletOut.GetComponent<DynamicAudio>().play(gunShotSFX, .1f, 1));
+            StartCoroutine(bulletOut.GetComponent<DynamicAudio>().play(gunShotSFX, .1f, .8f));
         }
     }
 
@@ -123,7 +123,7 @@ public class PlayerShooting : MonoBehaviour
         for (int i = 0; i < bulletsPerShot; i++)
         {
             shoot();
-            StartCoroutine(bulletOut.GetComponent<DynamicAudio>().play(gunShotSFX, .1f, 1));
+            StartCoroutine(bulletOut.GetComponent<DynamicAudio>().play(gunShotSFX, .1f, .8f));
             yield return new WaitForSeconds(interval);
         }
     }

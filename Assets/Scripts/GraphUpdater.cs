@@ -6,6 +6,7 @@ using UnityEngine.Tilemaps;
 
 public class GraphUpdater : MonoBehaviour // this script updates the path, would be better if I had a way to check length and width of the tilemaps but eh
 {
+    public float pathDistanceMultiplier = 1f;
     private void OnEnable()
     {
         Map.onRoomLoaded += updateGraph;
@@ -17,9 +18,12 @@ public class GraphUpdater : MonoBehaviour // this script updates the path, would
 
     void updateGraph()
     {
+        AstarPath.active.heuristic = Heuristic.Manhattan;
+        AstarPath.active.heuristicScale = pathDistanceMultiplier;
         // Find the maximum width and height of the tilemaps in the current room
         int maxWidth = 0;
         int maxHeight = 0;
+        
         foreach (Transform child in Map.currentRoom.transform)
         {
             // Iterate through the grandchildren of the currentRoom game object

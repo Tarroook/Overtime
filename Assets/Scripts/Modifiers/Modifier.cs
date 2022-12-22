@@ -14,4 +14,5 @@ public abstract class Modifier : MonoBehaviour
         map = GameObject.FindGameObjectWithTag("Map").GetComponent<Map>();
     }
     public abstract void effect(); // does the effect
+    protected abstract void stackEffect();
 }

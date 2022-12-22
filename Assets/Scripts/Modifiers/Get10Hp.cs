@@ -5,8 +5,21 @@ using UnityEngine;
 [RequireComponent(typeof(ItemInteractable))]
 public class Get10Hp : Upgrade
 {
+    private Health health;
+
+    private new void Start()
+    {
+        base.Start();
+        health = map.player.GetComponent<Health>();
+    }
+
     public override void effect()
     {
-        map.player.GetComponent<Health>().heal(10);
+        health.heal(10);
+    }
+
+    protected override void stackEffect()
+    {
+        throw new System.NotImplementedException();
     }
 }

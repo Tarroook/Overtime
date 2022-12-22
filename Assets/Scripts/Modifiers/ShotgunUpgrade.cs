@@ -4,10 +4,29 @@ using UnityEngine;
 
 public class ShotgunUpgrade : Upgrade
 {
+    private PlayerShooting ps;
+
+
+    private new void Start()
+    {
+        base.Start();
+        ps = map.player.GetComponent<PlayerShooting>();
+    }
+
     public override void effect()
     {
-        PlayerShooting ps = map.player.GetComponent<PlayerShooting>();
+        if (ps.bulletsPerShot == ps.defaultBulletsPerShot)
+        {
+            ps.bulletsPerShot++;
+            ps.spread += 10;
+        }
+        else
+            stackEffect();
+    }
+
+    protected override void stackEffect()
+    {
         ps.bulletsPerShot++;
-        ps.spread += 10;
+        ps.spread += 3;
     }
 }

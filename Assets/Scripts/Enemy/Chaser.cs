@@ -5,7 +5,7 @@ using Pathfinding;
 
 public class Chaser : Enemy
 {
-    private void Start()
+    private new void Start()
     {
         base.Start();
         seeker = GetComponent<Seeker>();

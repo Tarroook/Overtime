@@ -6,6 +6,16 @@ public class SlowDownPlayer : Downgrade
 {
     public override void effect()
     {
-        map.player.GetComponent<PlayerMovement>().speed -= map.player.GetComponent<PlayerMovement>().defaultSpeed * .25f;
+        if (map.player.GetComponent<PlayerMovement>().speed == map.player.GetComponent<PlayerMovement>().defaultSpeed)
+        {
+            map.player.GetComponent<PlayerMovement>().speed -= map.player.GetComponent<PlayerMovement>().defaultSpeed * .25f;
+        }
+        else
+            stackEffect();
+    }
+
+    protected override void stackEffect()
+    {
+        map.player.GetComponent<PlayerMovement>().speed -= map.player.GetComponent<PlayerMovement>().speed * .25f;
     }
 }

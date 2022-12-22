@@ -8,4 +8,9 @@ public class AutomaticGun : Upgrade
     {
         map.player.GetComponent<PlayerShooting>().shootType = "auto";
     }
+
+    protected override void stackEffect()
+    {
+        throw new System.NotImplementedException();
+    }
 }

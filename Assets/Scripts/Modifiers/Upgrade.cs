@@ -6,7 +6,7 @@ public abstract class Upgrade : Modifier
 {
     public ParticleSystem holyParticle;
 
-    private new void Start()
+    protected new void Start()
     {
         base.Start();
         Transform part = Instantiate(holyParticle, transform).transform;

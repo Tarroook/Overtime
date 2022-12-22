@@ -6,7 +6,7 @@ public class Room : MonoBehaviour
 {
     public List<Modifier> modifiers = new List<Modifier>();
     [SerializeField]private List<GameObject> currentEnemies = new List<GameObject>();
-    public List<GameObject> possibleEnemies;
+    public List<GameObject> possibleEnemies = new List<GameObject>();
     public int enemyQuantity = 5; // default to five, may get changed by items or difficulty
     [Space(10)]
     public int roomNumber;
@@ -29,9 +29,8 @@ public class Room : MonoBehaviour
         if(doorInstance == null)
             loadDoor();
 
-        if (possibleEnemies == null || possibleEnemies.Count <= 0) // Loads a basic list of enemies the first time the room is entered
+        if (possibleEnemies.Count == 0) // Loads a basic list of enemies the first time the room is entered
         {
-            possibleEnemies = new List<GameObject>();
             foreach (GameObject enemy in map.defaultEnemyList)
             {
                 possibleEnemies.Add(enemy);
@@ -147,7 +146,9 @@ public class Room : MonoBehaviour
     {
         for(int i = 0; i < currentEnemies.Count; i++)
         {
-            enemyDies(currentEnemies[0]);
+            currentEnemies[i].GetComponent<Health>().onDeath -= enemyDies;
+            Destroy(currentEnemies[i]);
         }
+        currentEnemies.Clear();
     }
 }

@@ -35,7 +35,9 @@ public class Map : MonoBehaviour
         for (int i = 0; i < maxRooms; i++)
         {
             int rand = Random.Range(0, allRooms.Count - 1);
-            rooms.Add(Instantiate(allRooms[rand], gameObject.transform));
+            GameObject randRoom = Instantiate(allRooms[rand], gameObject.transform);
+            randRoom.SetActive(false);
+            rooms.Add(randRoom);
             //allRooms.RemoveAt(rand);
         }
 

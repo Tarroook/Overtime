@@ -77,7 +77,7 @@ GameObject:
   - component: {fileID: 1952212006898076560}
   - component: {fileID: -4331647007643344892}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Chaser
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: cd4d687ee43fd404db05c51a1f3a63be, type: 3}
   m_NavMeshLayer: 0
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  distanceTillRecalculate: 1
+  rotationalDamping: 0.9
 --- !u!58 &8151187976278361001
 CircleCollider2D:
   m_ObjectHideFlags: 0

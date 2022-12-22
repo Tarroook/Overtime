@@ -7,6 +7,8 @@ using UnityEngine.Tilemaps;
 public class GraphUpdater : MonoBehaviour // this script updates the path, would be better if I had a way to check length and width of the tilemaps but eh
 {
     public float pathDistanceMultiplier = 1f;
+    public float nodeSize = 1f;
+
     private void OnEnable()
     {
         Map.onRoomLoaded += updateGraph;
@@ -40,9 +42,8 @@ public class GraphUpdater : MonoBehaviour // this script updates the path, would
         }
 
         // Update the width and height of the grid used by the A* Pathfinding system
-        AstarPath.active.data.gridGraph.width = maxWidth;
-        AstarPath.active.data.gridGraph.depth = maxHeight;
-
+        AstarPath.active.data.gridGraph.SetDimensions(Mathf.RoundToInt(maxWidth * (1 / nodeSize)), Mathf.RoundToInt(maxHeight * (1 / nodeSize)), nodeSize);
+        AstarPath.active.data.gridGraph.erodeIterations = Mathf.RoundToInt(1 / nodeSize) - 1;
         // Scan the scene and update the graphs
         AstarPath.active.Scan();
     }

@@ -51,10 +51,15 @@ public class ItemInteractable : Interactable
         UIInstance.SetActive(false);
         player.GetComponent<PlayerMovement>().enabled = true;
         player.GetComponent<PlayerShooting>().enabled = true;
-        Debug.Log("total = " + Map.rooms.Count + " added to room " + roomNumber);
+        //Debug.Log("total = " + Map.rooms.Count + " added to room " + roomNumber);
         Map.rooms[roomNumber].GetComponent<Room>().modifiers.Add(pending);
+        int count = 0;
         foreach (Modifier mod in Map.rooms[roomNumber].GetComponent<Room>().modifiers)
-            Debug.Log(mod.name);
+        {
+            if (mod.GetType() == pending.GetType())
+                count++;
+        }
+        pending.id = count;
         pending = null;
     }
 

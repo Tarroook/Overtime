@@ -45,7 +45,7 @@ public class Health : MonoBehaviour
 
     public void kill()
     {
-        Debug.Log(gameObject.name + " has died.");
+        //Debug.Log(gameObject.name + " has died.");
         if (onDeath != null)
             onDeath(gameObject);
         if(gameObject.tag.Equals("Player"))

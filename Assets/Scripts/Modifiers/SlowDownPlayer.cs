@@ -4,11 +4,21 @@ using UnityEngine;
 
 public class SlowDownPlayer : Downgrade
 {
+    private PlayerMovement pm;
+    public static float percentageRemoved = .25f;
+
+    private new void Start()
+    {
+        base.Start();
+        pm = map.player.GetComponent<PlayerMovement>();
+    }
+
     public override void effect()
     {
-        if (map.player.GetComponent<PlayerMovement>().speed == map.player.GetComponent<PlayerMovement>().defaultSpeed)
+        //Debug.Log("Ciggie effect : " + id);
+        if (id == 1)
         {
-            map.player.GetComponent<PlayerMovement>().speed -= map.player.GetComponent<PlayerMovement>().defaultSpeed * .25f;
+            pm.speed -= pm.defaultSpeed * percentageRemoved;
         }
         else
             stackEffect();
@@ -16,6 +26,6 @@ public class SlowDownPlayer : Downgrade
 
     protected override void stackEffect()
     {
-        map.player.GetComponent<PlayerMovement>().speed -= map.player.GetComponent<PlayerMovement>().speed * .25f;
+        pm.speed -= pm.defaultSpeed * (percentageRemoved * (1 / id));
     }
 }

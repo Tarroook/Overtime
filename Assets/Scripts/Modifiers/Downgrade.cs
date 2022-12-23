@@ -6,7 +6,7 @@ public abstract class Downgrade : Modifier
 {
     public ParticleSystem cursedParticle;
 
-    private new void Start()
+    protected new void Start()
     {
         base.Start();
         Transform part = Instantiate(cursedParticle, transform).transform;

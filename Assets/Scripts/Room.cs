@@ -27,7 +27,7 @@ public class Room : MonoBehaviour
         if (map == null)
             map = GameObject.FindGameObjectWithTag("Map").GetComponent<Map>();
         if(doorInstance == null)
-            loadDoor();
+            StartCoroutine(loadDoor());
 
         if (possibleEnemies.Count == 0) // Loads a basic list of enemies the first time the room is entered
         {
@@ -41,10 +41,11 @@ public class Room : MonoBehaviour
 
     private void resetRoom()
     {
-        doorInstance.GetComponent<Door>().isOpened = false;
+        if(doorInstance != null)
+            doorInstance.GetComponent<Door>().isOpened = false;
         foreach (Modifier mod in modifiers)
         {
-            Debug.Log("Did an effect : " + mod.name);
+            //Debug.Log("Did an effect : " + mod.name);
             mod.effect();
         }
 
@@ -116,16 +117,30 @@ public class Room : MonoBehaviour
         doorInstance.GetComponent<Door>().isOpened = true;
     }
 
-    void loadDoor()
+    IEnumerator loadDoor()
     {
+        yield return new WaitForEndOfFrame();
+        Debug.Log(roomNumber);
         if (roomNumber == 1 || roomNumber == 8)
+        {
             spawnDoor(leftDoorSpawns.transform.GetChild(0).transform, leftDoorSpawns.transform.GetChild(1).transform, 1);
+            Debug.Log("Spawned door on the left");
+        }
         else if (roomNumber == 2 || roomNumber == 3)
+        {
             spawnDoor(bottomDoorSpawns.transform.GetChild(0).transform, bottomDoorSpawns.transform.GetChild(1).transform, 0);
+            Debug.Log("Spawned door on the bottom");
+        }
         else if (roomNumber == 4 || roomNumber == 5)
+        {
             spawnDoor(rightDoorSpawns.transform.GetChild(0).transform, rightDoorSpawns.transform.GetChild(1).transform, 1);
+            Debug.Log("Spawned door on the right");
+        }
         else if (roomNumber == 6 || roomNumber == 7)
+        {
             spawnDoor(topDoorSpawns.transform.GetChild(0).transform, topDoorSpawns.transform.GetChild(1).transform, 0);
+            Debug.Log("Spawned door on the left");
+        }
     }
 
     void spawnDoor(Transform p1, Transform p2, int dir) // dir = 0 for hor; 1 for ver

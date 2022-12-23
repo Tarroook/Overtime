@@ -8,7 +8,9 @@ using UnityEngine;
 public abstract class Modifier : MonoBehaviour
 {
     public bool isPicked = false;
-    [SerializeField]protected Map map;
+    public int id;
+    protected Map map;
+
     protected void Start()
     {
         map = GameObject.FindGameObjectWithTag("Map").GetComponent<Map>();

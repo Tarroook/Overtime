@@ -325,6 +325,7 @@ GameObject:
   - component: {fileID: 599064839}
   - component: {fileID: 599064841}
   - component: {fileID: 599064840}
+  - component: {fileID: 599064842}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -347,9 +348,9 @@ RectTransform:
   m_Father: {fileID: 1136584193}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -536, y: -298}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 122, y: 44}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &599064840
@@ -449,6 +450,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 599064838}
   m_CullTransparentMesh: 1
+--- !u!114 &599064842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599064838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97b01f81d36e7e54e891ac164b2cdd61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &617536353 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7425549421177571386, guid: 4dffdb33e098eae4f8cae3fc6c0b7955, type: 3}

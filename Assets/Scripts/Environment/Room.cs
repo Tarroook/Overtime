@@ -49,10 +49,10 @@ public class Room : MonoBehaviour
             mod.effect();
         }
 
-        loadEnemies();
+        spawnEnemies();
     }
 
-    private void loadEnemies()
+    private void spawnEnemies()
     {
         for(int i = 0; i < enemyQuantity; i++)
         {

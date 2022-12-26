@@ -5,7 +5,6 @@ using UnityEngine;
 public class Room : MonoBehaviour
 {
     public List<Modifier> modifiers = new List<Modifier>();
-    [SerializeField]private List<GameObject> currentEnemies = new List<GameObject>();
     public List<GameObject> possibleEnemies = new List<GameObject>();
     public int enemyQuantity = 5; // default to five, may get changed by items or difficulty
     [Space(10)]
@@ -20,6 +19,7 @@ public class Room : MonoBehaviour
     [SerializeField]private Map map;
     public int upgradesAmount = 2;
     public int downgradesAmount = 2;
+    private EnemySpawner enemySpawner;
 
     // done every time the room is enabled (when the player enters it)
     private void OnEnable() 
@@ -28,6 +28,10 @@ public class Room : MonoBehaviour
             map = GameObject.FindGameObjectWithTag("Map").GetComponent<Map>();
         if(doorInstance == null)
             StartCoroutine(loadDoor());
+        if (enemySpawner == null)
+            enemySpawner = GetComponent<EnemySpawner>();
+
+        enemySpawner.onEnemiesDead += enemiesCleared;
 
         if (possibleEnemies.Count == 0) // Loads a basic list of enemies the first time the room is entered
         {
@@ -54,21 +58,12 @@ public class Room : MonoBehaviour
 
     private void spawnEnemies()
     {
-        for(int i = 0; i < enemyQuantity; i++)
+        for (int i = 0; i < enemyQuantity; i++)
         {
-            //Debug.Log("Spawned enemy " + i);
-            GameObject enemyInstance = Instantiate(possibleEnemies[Random.Range(0, possibleEnemies.Count - 1)], transform);
-            currentEnemies.Add(enemyInstance);
-            enemyInstance.GetComponent<Health>().onDeath += enemyDies;
+            enemySpawner.SpawnEnemy(possibleEnemies[Random.Range(0, possibleEnemies.Count - 1)]);
+            Debug.Log("Spawned enemy : " + i);
         }
-    }
-
-    private void enemyDies(GameObject e)
-    {
-        currentEnemies.Remove(e);
-        e.GetComponent<Health>().onDeath -= enemyDies;
-        if (currentEnemies.Count == 0)
-            enemiesCleared();
+            
     }
 
     private void enemiesCleared()
@@ -159,11 +154,6 @@ public class Room : MonoBehaviour
 
     private void OnDisable()
     {
-        for(int i = 0; i < currentEnemies.Count; i++)
-        {
-            currentEnemies[i].GetComponent<Health>().onDeath -= enemyDies;
-            Destroy(currentEnemies[i]);
-        }
-        currentEnemies.Clear();
+        enemySpawner.onEnemiesDead -= enemiesCleared;
     }
 }

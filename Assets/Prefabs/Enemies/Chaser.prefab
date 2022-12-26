@@ -112,8 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00536d7a64ae4594fad96b857e0a5dc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
-  health: 50
+  maxHealth: 20
+  health: 20
   noDamage: 0
   healParticles: {fileID: 0}
 --- !u!114 &350050742470329968

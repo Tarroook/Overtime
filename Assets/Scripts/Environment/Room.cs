@@ -47,11 +47,8 @@ public class Room : MonoBehaviour
     {
         if(doorInstance != null)
             doorInstance.GetComponent<Door>().isOpened = false;
-        foreach (Modifier mod in modifiers)
-        {
-            //Debug.Log("Did an effect : " + mod.name);
+        foreach (Modifier mod in GetComponents<Modifier>())
             mod.effect();
-        }
 
         spawnEnemies();
     }

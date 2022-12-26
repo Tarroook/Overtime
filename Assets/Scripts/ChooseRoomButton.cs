@@ -23,7 +23,7 @@ public class ChooseRoomButton : MonoBehaviour
 
     private void OnEnable()
     {
-        ItemInteractable.onPickedItem += addMod;
+        ModifierInteractable.onPickedItem += addMod;
     }
 
     private void Start()

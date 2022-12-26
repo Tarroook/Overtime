@@ -6,16 +6,10 @@ public class ShotgunUpgrade : Upgrade
 {
     private PlayerShooting ps;
 
-
-    private new void Start()
-    {
-        base.Start();
-        ps = map.player.GetComponent<PlayerShooting>();
-    }
-
     public override void effect()
     {
-        for(int i = 0; i < count; i++)
+        loadParameters();
+        for (int i = 0; i < count; i++)
         {
             if (i == 0)
             {
@@ -31,5 +25,12 @@ public class ShotgunUpgrade : Upgrade
     {
         ps.bulletsPerShot++;
         ps.spread += 3;
+    }
+
+    protected override void loadParameters()
+    {
+        base.loadParameters();
+        if (ps == null)
+            ps = map.player.GetComponent<PlayerShooting>();
     }
 }

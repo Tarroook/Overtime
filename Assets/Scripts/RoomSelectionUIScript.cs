@@ -9,13 +9,13 @@ public class RoomSelectionUIScript : MonoBehaviour
 
     private void OnEnable()
     {
-        ItemInteractable.onPickedItem += showUI;
+        ModifierInteractable.onPickedItem += showUI;
         ChooseRoomButton.onSelectedRoomButton += hideUI;
     }
 
     private void OnDisable()
     {
-        ItemInteractable.onPickedItem -= showUI;
+        ModifierInteractable.onPickedItem -= showUI;
         ChooseRoomButton.onSelectedRoomButton -= hideUI;
     }
 

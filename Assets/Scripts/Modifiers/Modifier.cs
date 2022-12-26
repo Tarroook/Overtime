@@ -11,11 +11,12 @@ public abstract class Modifier : MonoBehaviour
     public int count = 1;
     protected Map map;
     public string interactText = "Pick up";
-
-    protected void Start()
-    {
-        map = GameObject.FindGameObjectWithTag("Map").GetComponent<Map>();
-    }
     public abstract void effect(); // does the effect
     protected abstract void stackEffect(int index);
+
+    protected virtual void loadParameters()
+    {
+        if (map == null)
+            map = GameObject.FindGameObjectWithTag("Map").GetComponent<Map>();
+    }
 }

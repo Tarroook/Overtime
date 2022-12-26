@@ -7,16 +7,11 @@ public class SlowDownPlayer : Downgrade
     private PlayerMovement pm;
     public static float percentageRemoved = .25f;
 
-    private new void Start()
-    {
-        base.Start();
-        pm = map.player.GetComponent<PlayerMovement>();
-    }
-
     public override void effect()
     {
+        loadParameters();
         //Debug.Log("Ciggie effect : " + id);
-        for(int i = 0; i < count; i++)
+        for (int i = 0; i < count; i++)
         {
             if (i == 0)
             {
@@ -24,7 +19,7 @@ public class SlowDownPlayer : Downgrade
                 Debug.Log("Ciggie effect : " + i);
             }
             else
-                stackEffect(i);
+                stackEffect(i + 1);
         }
     }
 
@@ -32,5 +27,12 @@ public class SlowDownPlayer : Downgrade
     {
         //Debug.Log("speed = " + pm.speed + " - " + pm.defaultSpeed * (percentageRemoved * (1f / id)));
         pm.speed -= pm.defaultSpeed * (percentageRemoved * (1f / index));
+    }
+
+    protected override void loadParameters()
+    {
+        base.loadParameters();
+        if(pm == null)
+            pm = map.player.GetComponent<PlayerMovement>();
     }
 }

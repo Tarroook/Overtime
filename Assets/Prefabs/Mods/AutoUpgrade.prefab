@@ -148,6 +148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mod: {fileID: 0}
+  holyParticle: {fileID: 3598360602082683441, guid: 0365cacc5d4d8fe4a85ccbb9f9042c88, type: 3}
+  cursedParticle: {fileID: 3598360602082683441, guid: 29076bd7eab887c4f951b208163da63b, type: 3}
 --- !u!114 &4229376525489966127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,5 +163,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPicked: 0
-  id: 0
-  holyParticle: {fileID: 3598360602082683441, guid: 0365cacc5d4d8fe4a85ccbb9f9042c88, type: 3}
+  count: 1
+  interactText: Pick up

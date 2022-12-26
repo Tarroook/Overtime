@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ItemInteractable : Interactable
+public class ModifierInteractable : Interactable
 {
     public Modifier mod;
     public static GameObject UIInstance;
@@ -13,6 +13,9 @@ public class ItemInteractable : Interactable
     public static event pickedItemAction onPickedItem;
 
     private bool isWaiting = false;
+    [Space(10)]
+    public ParticleSystem holyParticle;
+    public ParticleSystem cursedParticle;
 
     private void OnEnable()
     {
@@ -26,6 +29,8 @@ public class ItemInteractable : Interactable
             UIInstance = GameObject.FindGameObjectWithTag("ModUI");
         if(player == null)
             player = GameObject.FindGameObjectWithTag("Player");
+
+        spawnParticles();
     }
 
     public override void interact()
@@ -58,27 +63,12 @@ public class ItemInteractable : Interactable
         var existingComponent = Map.rooms[roomNumber].GetComponent(modType);
         if (existingComponent != null)
         {
-            // Increment the count value of the existing component
             ((Modifier)existingComponent).count++;
         }
         else
         {
             // Add a new component of the same type as the mod attribute
             var newComponent = Map.rooms[roomNumber].AddComponent(modType);
-
-            // Copy the values of the properties of the mod attribute to the new component
-            var componentType = this.GetType();
-            var properties = componentType.GetProperties();
-            foreach (var property in properties)
-            {
-                if (property.CanRead && property.CanWrite && property.Name != "name")
-                {
-                    var value = property.GetValue(this);
-
-                    property.SetValue(newComponent, value);
-                }
-            }
-            Map.rooms[roomNumber].GetComponent<Room>().modifiers.Add((Modifier)newComponent);
         }
         isWaiting = false;
     }
@@ -95,5 +85,20 @@ public class ItemInteractable : Interactable
                 break;
             }
         }
+    }
+
+    private void spawnParticles()
+    {
+        Transform part = null;
+        if (mod is Upgrade)
+        {
+            part = Instantiate(holyParticle, transform).transform;
+        }
+        else if (mod is Downgrade)
+        {
+            part = Instantiate(cursedParticle, transform).transform;
+        }
+        if (part != null)
+            part.localPosition = Vector3.zero;
     }
 }

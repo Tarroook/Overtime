@@ -6,6 +6,7 @@ public class AutomaticGun : Upgrade
 {
     public override void effect()
     {
+        loadParameters();
         map.player.GetComponent<PlayerShooting>().shootType = "auto";
     }
 

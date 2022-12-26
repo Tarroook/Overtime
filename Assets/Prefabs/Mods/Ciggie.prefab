@@ -148,7 +148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mod: {fileID: 0}
-  selectRoomUiPrefab: {fileID: 8144030147863915466, guid: d8e2e9a30f6966f40abba875bb9b5ed7, type: 3}
+  holyParticle: {fileID: 3598360602082683441, guid: 0365cacc5d4d8fe4a85ccbb9f9042c88, type: 3}
+  cursedParticle: {fileID: 3598360602082683441, guid: 29076bd7eab887c4f951b208163da63b, type: 3}
 --- !u!114 &3375885110328029414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,5 +163,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPicked: 0
-  map: {fileID: 0}
-  cursedParticle: {fileID: 3598360602082683441, guid: 29076bd7eab887c4f951b208163da63b, type: 3}
+  count: 1
+  interactText: Pick up

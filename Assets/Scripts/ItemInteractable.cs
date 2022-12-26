@@ -9,35 +9,27 @@ public class ItemInteractable : Interactable
     public static GameObject UIInstance;
     public static GameObject player;
 
-    public static Modifier pending;
+    public delegate void pickedItemAction(Modifier modPicked);
+    public static event pickedItemAction onPickedItem;
+
+    private bool isWaiting = false;
+
+    private void OnEnable()
+    {
+        ChooseRoomButton.onSelectedRoomButton += applyEffectToRoom;
+    }
 
     private void Start()
     {
         mod = gameObject.GetComponent<Modifier>();
         if (UIInstance == null)
-        {
             UIInstance = GameObject.FindGameObjectWithTag("ModUI");
-
-            int count = 0;
-            foreach (Transform child in UIInstance.transform)
-            {
-                Button b = child.GetComponent<Button>();
-                if (b != null)
-                {
-                    int roomNumber = count;  // capture the value of count in a local variable
-                    b.onClick.AddListener(() => applyEffectToRoom(roomNumber));  // pass the captured value to the lambda expression
-                    count++;
-                }
-            }
-        }
         if(player == null)
             player = GameObject.FindGameObjectWithTag("Player");
     }
 
     public void chooseRoom()
     {
-        pending = mod;
-
         CanvasGroup cg = UIInstance.GetComponent<CanvasGroup>();
         cg.alpha = 1;
         cg.interactable = true;
@@ -47,8 +39,11 @@ public class ItemInteractable : Interactable
         player.GetComponent<PlayerShooting>().enabled = false;
     }
 
-    public static void applyEffectToRoom(int roomNumber)
+    public void applyEffectToRoom(int roomNumber)
     {
+        if (!isWaiting)
+            return;
+
         CanvasGroup cg = UIInstance.GetComponent<CanvasGroup>();
         cg.alpha = 0;
         cg.interactable = false;
@@ -58,21 +53,26 @@ public class ItemInteractable : Interactable
         player.GetComponent<PlayerShooting>().enabled = true;
 
         //Debug.Log("total = " + Map.rooms.Count + " added to room " + roomNumber);
-        Map.rooms[roomNumber].GetComponent<Room>().modifiers.Add(pending);
+        Map.rooms[roomNumber].GetComponent<Room>().modifiers.Add(mod);
         int count = 0;
         foreach (Modifier mod in Map.rooms[roomNumber].GetComponent<Room>().modifiers)
         {
-            if (mod.GetType() == pending.GetType())
+            if (mod.GetType() == mod.GetType())
                 count++;
         }
-        pending.id = count;
-        pending = null;
+        mod.id = count;
+        isWaiting = false;
     }
 
     public override void interact()
     {
+        isWaiting = true;
         chooseRoom();
+        if (onPickedItem != null)
+            onPickedItem(mod);
+
         mod.isPicked = true;
+
         gameObject.GetComponent<CircleCollider2D>().enabled = false;
         foreach (Transform child in transform)
             child.gameObject.SetActive(false);

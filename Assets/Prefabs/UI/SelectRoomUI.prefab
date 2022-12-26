@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 8092034838958571909}
   - component: {fileID: 8092034838958571908}
   - component: {fileID: 8092034838958571907}
+  - component: {fileID: 3113135597673902942}
   m_Layer: 5
   m_Name: Room6Button
   m_TagString: Untagged
@@ -256,6 +257,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3113135597673902942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8092034838958571905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a0994aaaf95e0643b439b300516c389, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomNB: 6
 --- !u!1 &8092034839010881372
 GameObject:
   m_ObjectHideFlags: 0
@@ -808,6 +822,7 @@ GameObject:
   - component: {fileID: 8092034839282897592}
   - component: {fileID: 8092034839282897575}
   - component: {fileID: 8092034839282897574}
+  - component: {fileID: 364851299397633895}
   m_Layer: 5
   m_Name: Room3Button
   m_TagString: Untagged
@@ -918,6 +933,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &364851299397633895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8092034839282897572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a0994aaaf95e0643b439b300516c389, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomNB: 3
 --- !u!1 &8092034839288002607
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,6 +1093,7 @@ GameObject:
   - component: {fileID: 8092034839320510521}
   - component: {fileID: 8092034839320510520}
   - component: {fileID: 8092034839320510503}
+  - component: {fileID: 4981424108143195244}
   m_Layer: 5
   m_Name: Room8Button
   m_TagString: Untagged
@@ -1175,6 +1204,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4981424108143195244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8092034839320510501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a0994aaaf95e0643b439b300516c389, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomNB: 8
 --- !u!1 &8092034839329068389
 GameObject:
   m_ObjectHideFlags: 0
@@ -1322,6 +1364,7 @@ GameObject:
   - component: {fileID: 8092034839349607581}
   - component: {fileID: 8092034839349607580}
   - component: {fileID: 8092034839349607579}
+  - component: {fileID: 1107223089641997702}
   m_Layer: 5
   m_Name: Room7Button
   m_TagString: Untagged
@@ -1432,6 +1475,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1107223089641997702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8092034839349607577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a0994aaaf95e0643b439b300516c389, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomNB: 7
 --- !u!1 &8092034839702659477
 GameObject:
   m_ObjectHideFlags: 0
@@ -1444,6 +1500,7 @@ GameObject:
   - component: {fileID: 8092034839702659497}
   - component: {fileID: 8092034839702659496}
   - component: {fileID: 8092034839702659479}
+  - component: {fileID: 5985298277279200830}
   m_Layer: 5
   m_Name: Room5Button
   m_TagString: Untagged
@@ -1554,6 +1611,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5985298277279200830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8092034839702659477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a0994aaaf95e0643b439b300516c389, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomNB: 5
 --- !u!1 &8092034839937433943
 GameObject:
   m_ObjectHideFlags: 0
@@ -1701,6 +1771,7 @@ GameObject:
   - component: {fileID: 8092034840329999128}
   - component: {fileID: 8092034840329999111}
   - component: {fileID: 8092034840329999110}
+  - component: {fileID: 1431048910936631317}
   m_Layer: 5
   m_Name: Room2Button
   m_TagString: Untagged
@@ -1811,6 +1882,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1431048910936631317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8092034840329999108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a0994aaaf95e0643b439b300516c389, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomNB: 2
 --- !u!1 &8092034840386612610
 GameObject:
   m_ObjectHideFlags: 0
@@ -1823,6 +1907,7 @@ GameObject:
   - component: {fileID: 8092034840386612614}
   - component: {fileID: 8092034840386612613}
   - component: {fileID: 8092034840386612612}
+  - component: {fileID: 3977480984994919644}
   m_Layer: 5
   m_Name: Room1Button
   m_TagString: Untagged
@@ -1945,6 +2030,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3977480984994919644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8092034840386612610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a0994aaaf95e0643b439b300516c389, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomNB: 1
 --- !u!1 &8092034840455344895
 GameObject:
   m_ObjectHideFlags: 0
@@ -2092,6 +2190,7 @@ GameObject:
   - component: {fileID: 8092034840955207658}
   - component: {fileID: 8092034840955207657}
   - component: {fileID: 8092034840955207656}
+  - component: {fileID: 8427464123652451445}
   m_Layer: 5
   m_Name: Room4Button
   m_TagString: Untagged
@@ -2202,3 +2301,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8427464123652451445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8092034840955207638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a0994aaaf95e0643b439b300516c389, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomNB: 4

@@ -10,6 +10,7 @@ public abstract class Modifier : MonoBehaviour
     public bool isPicked = false;
     public int id;
     protected Map map;
+    public string interactText = "Pick up";
 
     protected void Start()
     {

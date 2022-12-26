@@ -17,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-
     void Update()
     {
         float hor = Input.GetAxisRaw("Horizontal");

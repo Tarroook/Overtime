@@ -30,11 +30,6 @@ public class ItemInteractable : Interactable
 
     public void chooseRoom()
     {
-        CanvasGroup cg = UIInstance.GetComponent<CanvasGroup>();
-        cg.alpha = 1;
-        cg.interactable = true;
-        cg.blocksRaycasts = true;
-
         player.GetComponent<PlayerMovement>().enabled = false;
         player.GetComponent<PlayerShooting>().enabled = false;
     }
@@ -43,11 +38,6 @@ public class ItemInteractable : Interactable
     {
         if (!isWaiting)
             return;
-
-        CanvasGroup cg = UIInstance.GetComponent<CanvasGroup>();
-        cg.alpha = 0;
-        cg.interactable = false;
-        cg.blocksRaycasts = false;
 
         player.GetComponent<PlayerMovement>().enabled = true;
         player.GetComponent<PlayerShooting>().enabled = true;

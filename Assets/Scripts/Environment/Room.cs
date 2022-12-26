@@ -61,7 +61,7 @@ public class Room : MonoBehaviour
         for (int i = 0; i < enemyQuantity; i++)
         {
             enemySpawner.SpawnEnemy(possibleEnemies[Random.Range(0, possibleEnemies.Count - 1)]);
-            Debug.Log("Spawned enemy : " + i);
+            //Debug.Log("Spawned enemy : " + i);
         }
             
     }
@@ -115,7 +115,7 @@ public class Room : MonoBehaviour
     IEnumerator loadDoor()
     {
         yield return new WaitForEndOfFrame();
-        Debug.Log(roomNumber);
+        //Debug.Log(roomNumber);
         if (roomNumber == 1 || roomNumber == 8)
         {
             spawnDoor(leftDoorSpawns.transform.GetChild(0).transform, leftDoorSpawns.transform.GetChild(1).transform, 1);

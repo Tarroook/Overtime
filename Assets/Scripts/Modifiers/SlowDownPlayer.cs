@@ -19,6 +19,7 @@ public class SlowDownPlayer : Downgrade
         if (id == 1)
         {
             pm.speed -= pm.defaultSpeed * percentageRemoved;
+            Debug.Log("Ciggie effect : " + id);
         }
         else
             stackEffect();
@@ -26,6 +27,7 @@ public class SlowDownPlayer : Downgrade
 
     protected override void stackEffect()
     {
-        pm.speed -= pm.defaultSpeed * (percentageRemoved * (1 / id));
+        //Debug.Log("speed = " + pm.speed + " - " + pm.defaultSpeed * (percentageRemoved * (1f / id)));
+        pm.speed -= pm.defaultSpeed * (percentageRemoved * (1f / id));
     }
 }

@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class ItemInteractable : Interactable
 {
     public Modifier mod;
-    public GameObject selectRoomUiPrefab;
     public static GameObject UIInstance;
     public static GameObject player;
 

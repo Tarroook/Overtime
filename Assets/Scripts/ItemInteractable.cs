@@ -28,25 +28,6 @@ public class ItemInteractable : Interactable
             player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    public void applyEffectToRoom(int roomNumber)
-    {
-        if (!isWaiting)
-            return;
-
-        setPlayerInput(true);
-
-        //Debug.Log("total = " + Map.rooms.Count + " added to room " + roomNumber);
-        Map.rooms[roomNumber].GetComponent<Room>().modifiers.Add(mod);
-        int count = 0;
-        foreach (Modifier mod in Map.rooms[roomNumber].GetComponent<Room>().modifiers)
-        {
-            if (mod.GetType() == mod.GetType())
-                count++;
-        }
-        mod.id = count;
-        isWaiting = false;
-    }
-
     public override void interact()
     {
         isWaiting = true;
@@ -61,6 +42,45 @@ public class ItemInteractable : Interactable
         gameObject.GetComponent<CircleCollider2D>().enabled = false;
         foreach (Transform child in transform)
             child.gameObject.SetActive(false);
+    }
+
+    public void applyEffectToRoom(int roomNumber)
+    {
+        if (!isWaiting)
+            return;
+
+        setPlayerInput(true);
+
+        // Get the type of the mod attribute
+        var modType = mod.GetType();
+
+        // Check if the game object already has a component of the same type
+        var existingComponent = Map.rooms[roomNumber].GetComponent(modType);
+        if (existingComponent != null)
+        {
+            // Increment the count value of the existing component
+            ((Modifier)existingComponent).count++;
+        }
+        else
+        {
+            // Add a new component of the same type as the mod attribute
+            var newComponent = Map.rooms[roomNumber].AddComponent(modType);
+
+            // Copy the values of the properties of the mod attribute to the new component
+            var componentType = this.GetType();
+            var properties = componentType.GetProperties();
+            foreach (var property in properties)
+            {
+                if (property.CanRead && property.CanWrite && property.Name != "name")
+                {
+                    var value = property.GetValue(this);
+
+                    property.SetValue(newComponent, value);
+                }
+            }
+            Map.rooms[roomNumber].GetComponent<Room>().modifiers.Add((Modifier)newComponent);
+        }
+        isWaiting = false;
     }
 
     private void setPlayerInput(bool isEnabled) // gotta find a clean way to move this to player. Maybe make a Player class ?

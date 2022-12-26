@@ -8,7 +8,7 @@ using UnityEngine;
 public abstract class Modifier : MonoBehaviour
 {
     public bool isPicked = false;
-    public int id;
+    public int count = 1;
     protected Map map;
     public string interactText = "Pick up";
 
@@ -17,5 +17,5 @@ public abstract class Modifier : MonoBehaviour
         map = GameObject.FindGameObjectWithTag("Map").GetComponent<Map>();
     }
     public abstract void effect(); // does the effect
-    protected abstract void stackEffect();
+    protected abstract void stackEffect(int index);
 }

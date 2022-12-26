@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,7 +17,7 @@ public class ChooseRoomButton : MonoBehaviour
     private GameObject mainText;
     public int maxElementsPerRow = 3;
 
-    private List<GameObject> images;
+    private List<GameObject> sprites;
 
     //int currentRow = 0;
 
@@ -55,20 +56,38 @@ public class ChooseRoomButton : MonoBehaviour
             onSelectedRoomButton(roomNB - 1);
     }
 
-    void addImage(Sprite sprite) // move text + stack
+    void addImage(Sprite sprite)
     {
-        if(images == null)
+        if (sprites == null)
         {
-            images = new List<GameObject>();
+            sprites = new List<GameObject>();
             mainText.GetComponent<RectTransform>().offsetMax = new Vector2(0, 60);
         }
+
+        int count = 0;
+        foreach (GameObject imageObject in sprites)
+        {
+            Image img = imageObject.GetComponent<Image>();
+            if (img.sprite.Equals(sprite))
+            {
+                count++;
+                TextMeshProUGUI tmp = imageObject.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+                tmp.SetText(count.ToString());
+            }
+        }
+
         GameObject element = new GameObject("Image");
-
         RectTransform rectTransform = element.AddComponent<RectTransform>();
-
         Image image = element.AddComponent<Image>();
         image.sprite = sprite;
-
         element.transform.SetParent(layout.transform, false);
+
+        GameObject textObject = new GameObject("Text");
+        TextMeshProUGUI text = textObject.AddComponent<TextMeshProUGUI>();
+        text.SetText((count + 1).ToString());
+        text.fontSize = image.rectTransform.sizeDelta.y / 2; // Half the height of the image
+        RectTransform textTransform = textObject.GetComponent<RectTransform>();
+        textTransform.anchoredPosition = new Vector2(50, -50); // Offset from the bottom right corner of the image
+        textObject.transform.SetParent(image.transform, false);
     }
 }

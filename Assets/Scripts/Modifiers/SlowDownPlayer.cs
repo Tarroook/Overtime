@@ -16,18 +16,21 @@ public class SlowDownPlayer : Downgrade
     public override void effect()
     {
         //Debug.Log("Ciggie effect : " + id);
-        if (id == 1)
+        for(int i = 0; i < count; i++)
         {
-            pm.speed -= pm.defaultSpeed * percentageRemoved;
-            Debug.Log("Ciggie effect : " + id);
+            if (i == 0)
+            {
+                pm.speed -= pm.defaultSpeed * percentageRemoved;
+                Debug.Log("Ciggie effect : " + i);
+            }
+            else
+                stackEffect(i);
         }
-        else
-            stackEffect();
     }
 
-    protected override void stackEffect()
+    protected override void stackEffect(int index)
     {
         //Debug.Log("speed = " + pm.speed + " - " + pm.defaultSpeed * (percentageRemoved * (1f / id)));
-        pm.speed -= pm.defaultSpeed * (percentageRemoved * (1f / id));
+        pm.speed -= pm.defaultSpeed * (percentageRemoved * (1f / index));
     }
 }

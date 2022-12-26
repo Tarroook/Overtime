@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(ItemInteractable))]
 public class Get10Hp : Upgrade
 {
     private Health health;
@@ -18,7 +17,7 @@ public class Get10Hp : Upgrade
         health.heal(10);
     }
 
-    protected override void stackEffect()
+    protected override void stackEffect(int index)
     {
         throw new System.NotImplementedException();
     }

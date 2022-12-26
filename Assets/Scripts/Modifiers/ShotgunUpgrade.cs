@@ -15,16 +15,19 @@ public class ShotgunUpgrade : Upgrade
 
     public override void effect()
     {
-        if (ps.bulletsPerShot == ps.defaultBulletsPerShot)
+        for(int i = 0; i < count; i++)
         {
-            ps.bulletsPerShot++;
-            ps.spread += 10;
+            if (i == 0)
+            {
+                ps.bulletsPerShot++;
+                ps.spread += 10;
+            }
+            else
+                stackEffect(i);
         }
-        else
-            stackEffect();
     }
 
-    protected override void stackEffect()
+    protected override void stackEffect(int index)
     {
         ps.bulletsPerShot++;
         ps.spread += 3;

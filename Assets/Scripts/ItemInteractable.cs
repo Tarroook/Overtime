@@ -17,7 +17,7 @@ public class ItemInteractable : Interactable
         mod = gameObject.GetComponent<Modifier>();
         if (UIInstance == null)
         {
-            UIInstance = Instantiate(selectRoomUiPrefab);
+            UIInstance = GameObject.FindGameObjectWithTag("ModUI");
 
             int count = 0;
             foreach (Transform child in UIInstance.transform)
@@ -30,7 +30,6 @@ public class ItemInteractable : Interactable
                     count++;
                 }
             }
-            UIInstance.SetActive(false);
         }
         if(player == null)
             player = GameObject.FindGameObjectWithTag("Player");
@@ -38,19 +37,27 @@ public class ItemInteractable : Interactable
 
     public void chooseRoom()
     {
-        // montre un hud de choix de salle
         pending = mod;
-        UIInstance.SetActive(true);
+
+        CanvasGroup cg = UIInstance.GetComponent<CanvasGroup>();
+        cg.alpha = 1;
+        cg.interactable = true;
+        cg.blocksRaycasts = true;
+
         player.GetComponent<PlayerMovement>().enabled = false;
         player.GetComponent<PlayerShooting>().enabled = false;
     }
 
     public static void applyEffectToRoom(int roomNumber)
     {
-        //ajoute l'effet a la chambre donnee
-        UIInstance.SetActive(false);
+        CanvasGroup cg = UIInstance.GetComponent<CanvasGroup>();
+        cg.alpha = 0;
+        cg.interactable = false;
+        cg.blocksRaycasts = false;
+
         player.GetComponent<PlayerMovement>().enabled = true;
         player.GetComponent<PlayerShooting>().enabled = true;
+
         //Debug.Log("total = " + Map.rooms.Count + " added to room " + roomNumber);
         Map.rooms[roomNumber].GetComponent<Room>().modifiers.Add(pending);
         int count = 0;

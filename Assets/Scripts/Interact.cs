@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Interact : MonoBehaviour
 {
-
     public List<Interactable> interactables = new List<Interactable>();
 
     private void Update()

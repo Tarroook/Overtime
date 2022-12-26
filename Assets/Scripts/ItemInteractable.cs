@@ -28,19 +28,12 @@ public class ItemInteractable : Interactable
             player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    public void chooseRoom()
-    {
-        player.GetComponent<PlayerMovement>().enabled = false;
-        player.GetComponent<PlayerShooting>().enabled = false;
-    }
-
     public void applyEffectToRoom(int roomNumber)
     {
         if (!isWaiting)
             return;
 
-        player.GetComponent<PlayerMovement>().enabled = true;
-        player.GetComponent<PlayerShooting>().enabled = true;
+        setPlayerInput(true);
 
         //Debug.Log("total = " + Map.rooms.Count + " added to room " + roomNumber);
         Map.rooms[roomNumber].GetComponent<Room>().modifiers.Add(mod);
@@ -57,7 +50,9 @@ public class ItemInteractable : Interactable
     public override void interact()
     {
         isWaiting = true;
-        chooseRoom();
+
+        setPlayerInput(false);
+
         if (onPickedItem != null)
             onPickedItem(mod);
 
@@ -66,5 +61,19 @@ public class ItemInteractable : Interactable
         gameObject.GetComponent<CircleCollider2D>().enabled = false;
         foreach (Transform child in transform)
             child.gameObject.SetActive(false);
+    }
+
+    private void setPlayerInput(bool isEnabled) // gotta find a clean way to move this to player. Maybe make a Player class ?
+    {
+        player.GetComponent<PlayerMovement>().enabled = isEnabled;
+        player.GetComponent<PlayerShooting>().enabled = isEnabled;
+        foreach (Transform child in player.transform)
+        {
+            if (child.gameObject.GetComponent<Interact>() != null)
+            {
+                child.gameObject.GetComponent<Interact>().enabled = isEnabled;
+                break;
+            }
+        }
     }
 }

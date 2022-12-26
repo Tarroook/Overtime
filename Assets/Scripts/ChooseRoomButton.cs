@@ -12,10 +12,10 @@ public class ChooseRoomButton : MonoBehaviour
     public delegate void clickButtonAction(int roomNB);
     public static event clickButtonAction onSelectedRoomButton;
 
-    private GameObject verticalLayout;
+    private GameObject layout;
     public int maxElementsPerRow = 3;
 
-    int currentRow = 0;
+    //int currentRow = 0;
 
     private void OnEnable()
     {
@@ -26,8 +26,8 @@ public class ChooseRoomButton : MonoBehaviour
     {
         button = GetComponent<Button>();
         button.onClick.AddListener(() => clickedButton());
-        verticalLayout = transform.GetChild(1).gameObject;
-        if (verticalLayout == null)
+        layout = transform.GetChild(1).gameObject;
+        if (layout == null)
             Debug.LogWarning("No vertical layout found in chooseRoomUI");
     }
 
@@ -50,15 +50,15 @@ public class ChooseRoomButton : MonoBehaviour
     }
 
     void addImage(Sprite sprite)
-    {
+    {/*
         HorizontalLayoutGroup horizontalLayout;
-        if (verticalLayout.transform.childCount == 0)
+        if (layout.transform.childCount == 0)
         {
             horizontalLayout = addNewRow().GetComponent<HorizontalLayoutGroup>();
         }
         else
         {
-            horizontalLayout = verticalLayout.transform.GetChild(currentRow).GetComponent<HorizontalLayoutGroup>();
+            horizontalLayout = layout.transform.GetChild(currentRow).GetComponent<HorizontalLayoutGroup>();
 
             if (horizontalLayout.transform.childCount >= maxElementsPerRow)
             {
@@ -76,6 +76,15 @@ public class ChooseRoomButton : MonoBehaviour
         image.sprite = sprite;
 
         element.transform.SetParent(horizontalLayout.transform, false);
+        */
+        GameObject element = new GameObject("Image");
+
+        RectTransform rectTransform = element.AddComponent<RectTransform>();
+
+        Image image = element.AddComponent<Image>();
+        image.sprite = sprite;
+
+        element.transform.SetParent(layout.transform, false);
     }
 
     GameObject addNewRow()
@@ -86,9 +95,11 @@ public class ChooseRoomButton : MonoBehaviour
 
         HorizontalLayoutGroup layoutGroup = row.AddComponent<HorizontalLayoutGroup>();
         layoutGroup.childAlignment = TextAnchor.MiddleCenter;
-        layoutGroup.childForceExpandHeight = false;
+        layoutGroup.childControlHeight = true;
+        layoutGroup.childForceExpandHeight = true;
+        layoutGroup.childControlWidth = false;
         layoutGroup.childForceExpandWidth = false;
-        row.transform.SetParent(verticalLayout.transform, false);
+        row.transform.SetParent(layout.transform, false);
 
         return row;
     }

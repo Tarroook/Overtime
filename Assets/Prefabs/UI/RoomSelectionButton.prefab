@@ -315,9 +315,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5278452870939354479}
-  - component: {fileID: 5278452870939354478}
+  - component: {fileID: 7015950753211527899}
   m_Layer: 5
-  m_Name: VertLayout
+  m_Name: GridLayout
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -343,7 +343,7 @@ RectTransform:
   m_AnchoredPosition: {x: -0.0000009536743, y: 48.969437}
   m_SizeDelta: {x: 115.7, y: 77.5915}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5278452870939354478
+--- !u!114 &7015950753211527899
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -352,7 +352,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5278452870939354476}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
@@ -361,11 +361,9 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 0
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 1
-  m_ChildControlHeight: 1
-  m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
-  m_ReverseArrangement: 0
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 20, y: 20}
+  m_Spacing: {x: 5, y: 7}
+  m_Constraint: 1
+  m_ConstraintCount: 4

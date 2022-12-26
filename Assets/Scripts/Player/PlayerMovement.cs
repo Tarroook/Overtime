@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
         float hor = Input.GetAxisRaw("Horizontal");
         float ver = Input.GetAxisRaw("Vertical");
 
-        movement = new Vector2(hor, ver);
+        movement = new Vector2(hor, ver).normalized;
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 

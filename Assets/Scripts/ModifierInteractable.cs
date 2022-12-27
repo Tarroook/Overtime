@@ -41,12 +41,6 @@ public class ModifierInteractable : Interactable
 
         if (onPickedItem != null)
             onPickedItem(mod);
-
-        mod.isPicked = true;
-
-        gameObject.GetComponent<CircleCollider2D>().enabled = false;
-        foreach (Transform child in transform)
-            child.gameObject.SetActive(false);
     }
 
     public void applyEffectToRoom(int roomNumber)
@@ -71,6 +65,7 @@ public class ModifierInteractable : Interactable
             var newComponent = Map.rooms[roomNumber].AddComponent(modType);
         }
         isWaiting = false;
+        Destroy(gameObject);
     }
 
     private void setPlayerInput(bool isEnabled) // gotta find a clean way to move this to player. Maybe make a Player class ?

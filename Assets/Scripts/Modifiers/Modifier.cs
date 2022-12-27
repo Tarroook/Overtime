@@ -7,7 +7,6 @@ using UnityEngine;
 // a reset of every stat would need to be done between each room
 public abstract class Modifier : MonoBehaviour
 {
-    public bool isPicked = false;
     public int count = 1;
     protected Map map;
     public string interactText = "Pick up";

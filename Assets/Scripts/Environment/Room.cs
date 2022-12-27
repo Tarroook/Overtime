@@ -68,7 +68,7 @@ public class Room : MonoBehaviour
         float radius = 1f;
         float angleStep = 360f / (upgradesAmount + downgradesAmount);
         List<GameObject> mods = new List<GameObject>();
-        for (int i = 0; i < upgradesAmount; i++)
+        for (int i = 0; i < upgradesAmount; i++) // spawn upgrades
         {
             float angle = angleStep * i;
             float x = map.player.transform.position.x + radius * Mathf.Sin(angle * Mathf.Deg2Rad);
@@ -78,9 +78,9 @@ public class Room : MonoBehaviour
             mods.Add(go);
         }
 
-        // Start the loop for downgrades at a different angle
+        
         float startAngle = angleStep * upgradesAmount;
-        for (int i = 0; i < downgradesAmount; i++)
+        for (int i = 0; i < downgradesAmount; i++) // spawn downgrades
         {
             float angle = startAngle + angleStep * i;
             float x = map.player.transform.position.x + radius * Mathf.Sin(angle * Mathf.Deg2Rad);
@@ -101,7 +101,7 @@ public class Room : MonoBehaviour
             count = 0;
             foreach (GameObject go in mods)
             {
-                if (go.GetComponent<Modifier>().isPicked)
+                if (go == null)
                     count++;
             }
             yield return new WaitForEndOfFrame();

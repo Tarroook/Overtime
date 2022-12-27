@@ -78,9 +78,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d8856f1b3c0fe949a8b59341d5a8431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPicked: 0
+  modData: {fileID: 11400000, guid: 8fedb6bfad6694441bebdf23f5425159, type: 2}
   count: 1
-  interactText: Pick up
 --- !u!1 &3111934497414977828
 GameObject:
   m_ObjectHideFlags: 0

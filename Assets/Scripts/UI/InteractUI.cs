@@ -50,7 +50,7 @@ public class InteractUI : MonoBehaviour
         Interactable i = interact.interactables[0];
         if (i is ModifierInteractable)
         {
-            text = ((ModifierInteractable)i).mod.interactText;
+            text = ((ModifierInteractable)i).mod.modData.interactText + " " + ((ModifierInteractable)i).mod.modData.name;
         }
         else if (i is Door)
         {

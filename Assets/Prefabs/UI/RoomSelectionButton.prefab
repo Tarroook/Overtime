@@ -306,6 +306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomNB: 1
   maxElementsPerRow: 3
+  imagePrefab: {fileID: 3682754330003609453, guid: 64217f0cf7a415348b5279d31ce925f2, type: 3}
 --- !u!1 &5278452870939354476
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,6 +365,6 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 25, y: 25}
-  m_Spacing: {x: 5, y: 7}
+  m_Spacing: {x: 5, y: 3}
   m_Constraint: 1
   m_ConstraintCount: 4

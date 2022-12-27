@@ -111,7 +111,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 115363220031719743}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.3, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -162,6 +162,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3078f34823584a4e90f9047e539cf2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPicked: 0
+  modData: {fileID: 11400000, guid: 60821f4a40578e24da9ff45621c41212, type: 2}
   count: 1
-  interactText: Pick up

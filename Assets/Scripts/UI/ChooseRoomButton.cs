@@ -17,7 +17,9 @@ public class ChooseRoomButton : MonoBehaviour
     private GameObject mainText;
     public int maxElementsPerRow = 3;
 
-    private List<GameObject> sprites;
+    public GameObject imagePrefab;
+
+    private List<GameObject> images;
 
     //int currentRow = 0;
 
@@ -45,25 +47,36 @@ public class ChooseRoomButton : MonoBehaviour
 
     private void clickedButton()
     {
-        foreach(Transform child in modToAdd.transform)
-        {
-            if(child.gameObject.GetComponent<SpriteRenderer>() != null)
-            {
-                addImage(child.gameObject.GetComponent<SpriteRenderer>().sprite);
-            }
-        }
+        addImage(modToAdd.modData.sprite);
         if (onSelectedRoomButton != null)
             onSelectedRoomButton(roomNB - 1);
     }
 
     void addImage(Sprite sprite)
     {
-        if (sprites == null)
+        if (images == null)
         {
-            sprites = new List<GameObject>();
+            images = new List<GameObject>();
             mainText.GetComponent<RectTransform>().offsetMax = new Vector2(0, 60);
         }
 
+        bool isAleradyIn = false;
+        foreach (GameObject imageObject in images)
+        {
+            if (imageObject.GetComponent<Image>().sprite.Equals(sprite))
+            {
+                imageObject.transform.GetComponentInChildren<ModCounter>().count++;
+                isAleradyIn = true;
+                break;
+            }
+        }
+        if (!isAleradyIn)
+        {
+            GameObject newImage = Instantiate(imagePrefab, layout.transform);
+            newImage.GetComponent<Image>().sprite = sprite;
+            images.Add(newImage);
+        }
+        /*
         int count = 0;
         foreach (GameObject imageObject in sprites)
         {
@@ -89,5 +102,6 @@ public class ChooseRoomButton : MonoBehaviour
         RectTransform textTransform = textObject.GetComponent<RectTransform>();
         textTransform.anchoredPosition = new Vector2(50, -50); // Offset from the bottom right corner of the image
         textObject.transform.SetParent(image.transform, false);
+        */
     }
 }

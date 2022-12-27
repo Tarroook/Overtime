@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1891698408975020018}
   - component: {fileID: 1891698408975020016}
   - component: {fileID: 1891698408975020019}
-  - component: {fileID: 6246222935306928411}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -136,26 +135,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &6246222935306928411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1891698408975020029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreLayout: 0
-  m_MinWidth: -1
-  m_MinHeight: -1
-  m_PreferredWidth: -1
-  m_PreferredHeight: -1
-  m_FlexibleWidth: -1
-  m_FlexibleHeight: -1
-  m_LayoutPriority: 1
 --- !u!1 &1891698409041588352
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,7 +149,7 @@ GameObject:
   - component: {fileID: 1891698409041588358}
   - component: {fileID: 6719052471470287326}
   m_Layer: 5
-  m_Name: RoomSelectionButton
+  m_Name: RoomButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

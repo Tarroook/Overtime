@@ -5,7 +5,7 @@ You will have to loop through 8 rooms and try to survive for as long as you can.
 
 Unknown powers are in effect in this workplace. Every time you clear a room, modifiers will be given to you.
 
-## Uprgades :
+## Upgrades :
 Upgrades will help you survive longer but are only in effect when you are in the room they are applied to.
 When picking up an upgrade you are then given the choice of which room do you want this upgrade to be applied to.
 
